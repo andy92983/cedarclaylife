@@ -42,14 +42,23 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     locale: "en_US",
     type: "website",
-    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: SITE.name }],
+    images: [{ url: "/brand/logo.png", width: 2328, height: 514, alt: SITE.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE.name} — Faith-Based Wellness & Creative Studio`,
     description:
       "Natural products for home, body & health. Art studio, maker classes, and 21 acres of trails.",
-    images: ["/og-image.svg"],
+    images: ["/brand/logo.png"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    other: [{ rel: "manifest", url: "/site.webmanifest" }],
   },
   robots: {
     index: true,

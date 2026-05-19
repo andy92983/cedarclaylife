@@ -46,7 +46,7 @@ export function LocalBusinessSchema() {
         description:
           "Handmade home, bath, and wellness products sold at county farmer's markets, plus creative studio classes and nature trails on 21 acres.",
         priceRange: "$$",
-        image: `${SITE.domain}/og-image.svg`,
+        image: `${SITE.domain}/brand/logo.png`,
         address: {
           "@type": "PostalAddress",
           streetAddress: street,

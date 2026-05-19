@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { formatAddress, NAV, SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -27,18 +28,28 @@ export function PillarIcon({ name, className }: { name: string; className?: stri
   );
 }
 
-export function Logo({ className }: { className?: string }) {
+type LogoProps = {
+  className?: string;
+  variant?: "header" | "footer";
+};
+
+export function Logo({ className, variant = "header" }: LogoProps) {
+  const height = variant === "footer" ? 56 : 48;
+
   return (
-    <Link href="/" className={cn("group inline-flex items-center gap-3", className)}>
-      <span
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cedar-500 to-clay-500 text-sm font-display font-semibold text-white shadow-md transition-transform group-hover:scale-105"
-        aria-hidden
-      >
-        C&C
-      </span>
-      <span className="font-display text-xl font-semibold tracking-tight text-bark">
-        Cedar & Clay
-      </span>
+    <Link
+      href="/"
+      className={cn("group inline-flex items-center transition-opacity hover:opacity-90", className)}
+      aria-label={`${SITE.name} home`}
+    >
+      <Image
+        src="/brand/logo.png"
+        alt={SITE.name}
+        width={Math.round(height * (2328 / 514))}
+        height={height}
+        priority={variant === "header"}
+        className="h-auto w-auto max-h-12 max-w-[min(100%,280px)] object-contain object-left sm:max-h-14 sm:max-w-[320px]"
+      />
     </Link>
   );
 }
@@ -107,7 +118,9 @@ export function Footer() {
       <div className="section-padding container-wide">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <Logo className="[&_.font-display]:text-white [&_.text-bark]:text-white" />
+            <div className="inline-block rounded-xl bg-cream p-3">
+              <Logo variant="footer" />
+            </div>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-cedar-200">
               {SITE.name} — handmade products, creative studio classes, and {SITE.acres} acres
               of trails in Redgranite, Wisconsin. Whole-person wellness rooted in biblical wisdom.
