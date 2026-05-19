@@ -1,0 +1,16 @@
+{
+  "name": "Cedar & Clay",
+  "short_name": "Cedar & Clay",
+  "description": "Faith-based wellness, handmade products, creative studio, and nature trails.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F3ED",
+  "theme_color": "#7A5538",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

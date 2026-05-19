@@ -1,0 +1,343 @@
+# 2025 Tax Filing Guide — Andy & Samantha Bergstrom
+**Tax Year 2025 | Filed in 2026 | Married Filing Jointly | Wisconsin**
+
+> ⚠️ This is a working document — not a filed return. All figures are estimates based on reviewed documents. Consult a licensed CPA before filing.
+
+---
+
+## Estimated Refund (Corrected)
+
+| Jurisdiction | Amount |
+|---|---|
+| Federal | **$1,824** |
+| Wisconsin | **$1,226** |
+| **Total** | **$3,050** |
+
+Range depending on Wealthfront/insulation credit resolution: $1,897 – $4,250
+
+---
+
+## Step 1 — Before You Open TurboTax
+
+Gather these documents. You'll need them open on screen or printed nearby.
+
+### ✅ W-2s (wages & withholding)
+| Employer | Wages (Box 1) | Federal Withheld (Box 2) | WI Withheld (Box 17) |
+|---|---|---|---|
+| Dearborn Life Insurance | $88,906.24 | $8,048.72 | $4,426.32 |
+| Symetra Financial | $23,801.56 | $1,667.30 | $1,169.59 |
+
+### ✅ 1099 Income Forms
+| Form | Source | Key Amount |
+|---|---|---|
+| 1099-INT | DCU | $27.69 interest |
+| 1099-MISC | Udemy | $50.07 royalties |
+| 1099-DIV/INT | Schwab (8948-9779) | $55.09 div, $9.58 int |
+| 1099-DIV/INT/MISC | Webull (CUX7S7P3) | $72.07 div, $1,404.40 int, $647.23 other |
+| 1099-DIV/INT | Robinhood acct 181033722446 | $2.98 div |
+| 1099-DIV/INT/MISC | Robinhood acct 462415894 | $132.30 div, $545.56 int, $957.03 MISC |
+
+### ✅ Capital Gains / Trading Forms
+| Form | Source | Notes |
+|---|---|---|
+| 1099-B | Schwab composite | Short-term stocks/options |
+| 1099-B (Section 1256) | Schwab SPX/XSP options | $5,157.18 net — use Form 6781 |
+| 1099-B (Futures) | Schwab Futures & Forex LLC | ($3,590.04) loss — use Form 6781 |
+| 1099-B | Webull | $1,993.59 short-term gain |
+| 1099-B | Robinhood (210 trades) | ($452) net loss |
+| 1099-DA | Gemini | ($9.75) crypto loss |
+| 1099-DA | Venmo/PayPal | $0 (tiny SOL, no gain) |
+| 1099-B | Cash App | Bitcoin — need your own cost basis records |
+
+### ✅ Retirement / IRA Forms
+| Form | Source | Treatment |
+|---|---|---|
+| 1099-R (code J) | Wealthfront / Forge Trust | $5,500 — likely $0 taxable (Roth basis return) — needs Form 8606 |
+| 1099-R (code G) | Empower | $82,576.27 rollover — $0 taxable |
+
+### ✅ Deduction / Credit Documents
+| Document | Amount | Use |
+|---|---|---|
+| Form 1098 — Home 1 (Freedom Mortgage) | $8,372.90 interest | WI itemized deduction credit |
+| Form 1098 — Home 2 (The Money Store) | $9,071.03 interest | WI itemized deduction credit |
+| Bible Baptist Church donation receipt | $965.20 | WI itemized deduction credit |
+| Moxie attic insulation invoice | $12,000 total | §25C credit — **needs materials-only breakout** |
+| Form 8936 + Schedule A | 2025 Chevy Equinox EV | Must file to reconcile — no additional credit |
+| Liam's SSN card | — | Child Tax Credit — **must confirm age/residency** |
+
+### ✅ Other
+- Symetra 1095 / Dearborn 1095 — informational only, no tax effect
+- Optum 5498-SA — HSA contribution matched W-2 Box 12 Code W ($1,560) — no double entry needed
+- Roadmap22 LLC penalty notice — separate from personal 1040, do not enter here
+
+---
+
+## Step 2 — Create Your TurboTax Account
+
+**Recommended product: TurboTax Premier**
+- Handles Section 1256 / Form 6781 ✅
+- Handles 1099-DA crypto ✅
+- Direct brokerage import ✅
+- Form 8606 (Roth IRA) ✅
+- Two state returns supported ✅
+
+1. Go to **turbotax.intuit.com**
+2. Click **"File your taxes"** → **"Start for free"**
+3. Create an account with your email address
+4. When asked which version, select **Premier**
+5. Choose **"Online"** version (easier for first-timers vs. desktop download)
+
+---
+
+## Step 3 — Start Your Return
+
+1. Click **"Start a new return"**
+2. Tax year: **2025**
+3. Select **"I'll enter it myself"** (not from last year's return since this is your first time)
+4. Filing status: **Married Filing Jointly**
+5. Enter both Andy and Samantha's names, SSNs, and date of birth
+6. Address: **7009 Barber Cir, West Bend, WI 53090** (primary)
+
+---
+
+## Step 4 — Enter W-2s
+
+TurboTax will ask "Do you have a W-2?" — click **Yes**.
+
+### Option A — Import directly (recommended)
+1. Click **"Import W-2"**
+2. Search for **"Dearborn Life Insurance"** — log in with your work credentials if prompted
+3. Repeat for **"Symetra Financial"**
+
+### Option B — Enter manually
+Click **"I'll type it in myself"** and enter exactly as shown:
+
+**Dearborn Life Insurance Co (EIN: 362598882)**
+- Box 1 Wages: `88,906.24`
+- Box 2 Federal tax withheld: `8,048.72`
+- Box 3 Social security wages: `109,548.19`
+- Box 4 Social security tax: `6,791.99`
+- Box 5 Medicare wages: `109,548.19`
+- Box 6 Medicare tax: `1,588.45`
+- Box 12a Code D: `20,641.95` (401k)
+- Box 13: Retirement plan ✅
+- Box 15 State: WI | Box 16 State wages: `88,906.24` | Box 17 State tax: `4,426.32`
+
+**Symetra Financial Corp (EIN: 200978027)**
+- Box 1 Wages: `23,801.56`
+- Box 2 Federal tax withheld: `1,667.30`
+- Box 3 Social security wages: `25,178.46`
+- Box 4 Social security tax: `1,561.06`
+- Box 5 Medicare wages: `25,178.46`
+- Box 6 Medicare tax: `365.09`
+- Box 12a Code C: `21.06`
+- Box 12b Code D: `1,376.90`
+- Box 12c Code W: `1,560.00` (HSA)
+- Box 12d Code DD: `4,179.06`
+- Box 13: Retirement plan ✅
+- Box 15 State: WI | Box 16 State wages: `23,801.56` | Box 17 State tax: `1,169.59`
+
+> ⚠️ Do NOT enter Samantha's VA disability income anywhere — it is 100% tax-exempt under IRC §104.
+
+---
+
+## Step 5 — Enter Investment Income (1099s)
+
+### 5A — Import from Brokerages (Best Method)
+
+TurboTax can import directly. Navigate to **"Wages & Income" → "Investment Income" → "Stocks, Crypto, Mutual Funds"**.
+
+| Brokerage | Import method | What you'll need |
+|---|---|---|
+| **Schwab** | Search "Charles Schwab" → log in | Account 8948-9779 |
+| **Robinhood** | Search "Robinhood" → use Document ID | Master Acct: 462415894 / Doc ID: 196ZEB83GCN |
+| **Webull** | Search "Webull" → log in | Account CUX7S7P3 |
+
+> 💡 TurboTax may have a transaction import limit (~10,000 trades). Robinhood's 210 trades should be fine. If import fails, you can upload the CSV directly.
+
+### 5B — Enter DCU Interest Manually
+- Navigate to **"Interest Income (1099-INT)"**
+- Payer: Digital Federal Credit Union
+- Box 1 Interest: `27.69`
+
+### 5C — Enter Udemy Royalties Manually
+- Navigate to **"Other Common Income" → "1099-MISC"**
+- Payer: Udemy Inc.
+- Box 2 Royalties: `50.07`
+
+---
+
+## Step 6 — Enter Section 1256 Contracts (Form 6781)
+
+This is the most important step for your profile. Section 1256 applies to the SPX/XSP options on Schwab and the futures on Schwab Futures & Forex.
+
+**If Schwab imported correctly**, TurboTax should auto-populate Form 6781. Verify the numbers match:
+
+| Source | Amount |
+|---|---|
+| Schwab SPX/XSP options (Box 8+11) | $5,157.18 |
+| Schwab Futures (Box 11 aggregate) | ($3,590.04) |
+| **Net Section 1256** | **$1,567.14** |
+
+**If entering manually:**
+1. Go to **"Investment Income" → "Contracts and Straddles"**
+2. Select **"Section 1256 contracts (Form 6781)"**
+3. Enter each account separately
+4. TurboTax will automatically apply the **60% long-term / 40% short-term split**
+
+---
+
+## Step 7 — Enter Retirement Distributions (1099-R)
+
+### Wealthfront / Forge Trust (Code J — Roth IRA)
+1. Navigate to **"Retirement Plans and Social Security" → "IRA, 401(k), Pension Plan Withdrawals"**
+2. Enter: Gross distribution `$5,500.00`
+3. Distribution code: **J**
+4. TurboTax will ask: **"Did you make any nondeductible contributions to this Roth IRA?"**
+   - Answer **Yes** if Samantha has records of original contributions
+   - TurboTax will open **Form 8606** — enter total Roth basis (total contributions made over the years)
+   - If basis ≥ $5,500, taxable amount = $0 and no penalty
+   - ⚠️ If you cannot prove basis, TurboTax may treat the $5,500 as taxable + 10% penalty (~$550 extra tax)
+
+### Empower (Code G — Rollover)
+1. Same section as above
+2. Gross distribution: `$82,576.27`
+3. Distribution code: **G**
+4. TurboTax will ask if it was rolled over — answer **Yes, entire amount**
+5. Taxable amount: **$0**
+
+---
+
+## Step 8 — Enter Crypto (1099-DA)
+
+### Gemini
+1. Navigate to **"Investment Income" → "Cryptocurrency"**
+2. TurboTax may support Gemini import — search "Gemini" in the import tool
+3. If not, enter manually:
+   - BTC sale: Proceeds $1.78 / Basis $2.27 / Loss ($0.49) — short-term
+   - XRP sale: Proceeds $37.08 / Basis $46.29 / Loss ($9.21) — short-term
+   - SHIB sale: Proceeds $0.24 / Basis $0.29 / Loss ($0.05) — short-term
+
+### Venmo/PayPal (SOL)
+- Proceeds: $0.00, Basis: $0.00 — enter but no tax impact
+
+### Cash App Bitcoin
+- You'll need your own purchase records for cost basis
+- Cash App only reported gross proceeds — TurboTax will flag if basis is missing
+- Enter what you know; if basis is unknown, it defaults to $0 (worst case)
+
+---
+
+## Step 9 — Enter Deductions
+
+TurboTax will ask "Do you want to itemize or take the standard deduction?" — for federal, the standard deduction ($31,500 MFJ) is almost certainly better. TurboTax will confirm this automatically.
+
+For **Wisconsin**, TurboTax will calculate the itemized deduction credit using:
+- Home 1 mortgage interest: `$8,372.90`
+- Home 2 mortgage interest: `$9,071.03`
+- Charity (Bible Baptist Church): `$965.20`
+
+Enter these in the **"Deductions & Credits"** section even if you're taking the federal standard deduction.
+
+---
+
+## Step 10 — Enter Credits
+
+### Child Tax Credit (Liam)
+1. Navigate to **"Deductions & Credits" → "You and Your Family" → "Child and Dependent Care"**
+2. Enter Liam's name, SSN, and date of birth
+3. Confirm he lived with you all year in the US
+4. TurboTax will calculate the $2,200 credit automatically
+
+### §25C Home Energy Improvement (Attic Insulation)
+- Navigate to **"Deductions & Credits" → "Your Home" → "Home Energy Credits"**
+- ⚠️ You can only claim this if you can show the **insulation materials portion** of the $12,000 Moxie invoice separately from labor and removal costs
+- If you have that breakdown, enter the qualifying materials cost (max credit $1,200)
+- If not, skip for now — claiming it without documentation is a risk
+
+### Form 8936 — EV Clean Vehicle Credit
+1. Navigate to **"Deductions & Credits" → "Cars and Other Things You Own" → "Clean Vehicle Credits"**
+2. Enter 2025 Chevrolet Equinox EV, VIN: `3GN7DMRP6SS195664`
+3. Date placed in service: `03/27/2025`
+4. Answer **Yes** — credit was transferred to dealer at time of sale
+5. Enter transferred amount: `$7,500`
+6. TurboTax will confirm $0 additional credit but will file Form 8936 + Schedule A for reconciliation ✅
+
+---
+
+## Step 11 — Wisconsin State Return
+
+TurboTax will automatically pull your federal data into the Wisconsin return. Review these specific items:
+
+| Item | What to expect |
+|---|---|
+| Wisconsin standard deduction | ~$6,412 (after phase-out at your income) |
+| Exemptions | $2,100 (2 spouses + 1 dependent) |
+| Itemized deduction credit | ~$600 (from mortgage interest + charity vs. WI std deduction) |
+| Homeowner school property credit (Line 16b) | $300 (based on Home 1 property tax disbursement of $5,277.38) |
+| Married couple credit | $0 (Samantha has no WI earned income — VA disability is nontaxable) |
+| WI withholding | $5,595.91 total |
+| **Expected WI refund** | **~$1,226** |
+
+---
+
+## Step 12 — Review & File
+
+Before submitting, TurboTax will run a final check. Things to verify:
+
+- [ ] Federal refund shows approximately **$1,824** (range $966–$3,024 depending on Wealthfront/insulation)
+- [ ] Wisconsin refund shows approximately **$1,226**
+- [ ] Form 6781 appears in your return for Section 1256 contracts
+- [ ] Form 8936 + Schedule A appears for the EV credit reconciliation
+- [ ] Form 8606 appears if you claimed Wealthfront as nontaxable
+- [ ] No ACTC (Additional Child Tax Credit) — at your income this should be $0
+- [ ] No $7,500 EV credit on Schedule 3 — it was already transferred
+
+### Filing method
+- **E-file** — fastest, IRS confirms receipt within 24-48 hours
+- **Direct deposit** — set up your bank account for fastest refund (typically 10-21 days after e-file)
+
+---
+
+## Open Questions Before Filing
+
+| Question | Impact | How to resolve |
+|---|---|---|
+| Wealthfront Roth basis | Potentially large (up to $550 extra tax + penalty) | Find Samantha's Roth IRA contribution records or Form 8606 from prior years |
+| Attic insulation materials cost | Up to $1,200 federal credit | Get itemized invoice from Moxie showing materials cost separately |
+| Cash App Bitcoin basis | Small | Check Cash App transaction history for purchase price |
+| Wisconsin Line 16b eligibility | $300 WI | Confirm Home 1 (7009 Barber Cir) qualifies for homeowner school credit |
+
+---
+
+## Important Notes
+
+- **Roadmap22 LLC penalty ($1,410)** — This is separate from your personal 1040. Do NOT enter in TurboTax personal return. You need to respond to IRS CP162A directly. Consider requesting First-Time Penalty Abatement (FTA) if you have a clean compliance history.
+- **Cash App 1099 is for tax year 2024** — do not include in this return
+- **Old W-2s** — for reference only, do not enter in 2025 return
+- **Symetra 1095 / Dearborn 1095** — informational health coverage forms, no entry needed in TurboTax for most filers
+
+---
+
+## Key Numbers Summary
+
+| Item | Amount |
+|---|---|
+| Total wages (Andy) | $112,707.80 |
+| Total investment/other income | ~$11,309 |
+| Adjusted Gross Income | ~$124,017 |
+| Standard deduction (MFJ) | $31,500 |
+| Taxable income | ~$92,517 |
+| Tax bracket | 12% |
+| Effective federal rate | ~5.7% |
+| Federal withholding | $9,716.02 |
+| Federal tax liability | ~$7,892 |
+| **Federal refund** | **~$1,824** |
+| WI withholding | $5,595.91 |
+| WI tax liability | ~$4,370 |
+| **WI refund** | **~$1,226** |
+| **Total refund** | **~$3,050** |
+
+---
+
+*Document prepared April 2026 | Based on uploaded ZIP tax documents and corrected review PDF | Not a filed return | Consult a licensed CPA before submitting*
