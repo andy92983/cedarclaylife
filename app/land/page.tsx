@@ -56,8 +56,8 @@ export default function LandPage() {
             <h2 className="font-display text-4xl">Creation meets creation</h2>
             <p className="mt-4 leading-relaxed text-cedar-200">
               Many visits combine studio time with trail time — make something with your hands,
-              then let the land restore what screens and schedules took. That rhythm — consume well,
-              create boldly, conduct yourself with intention — is the heartbeat of{" "}
+              then let the land restore what screens and schedules took. That rhythm — create boldly,
+              consume well, conduct yourself with intention — is the heartbeat of{" "}
               {SITE.name}.
             </p>
           </div>

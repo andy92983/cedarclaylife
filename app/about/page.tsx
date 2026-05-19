@@ -31,7 +31,7 @@ export default function AboutPage() {
         <BrandedPageHeader
           eyebrow="Our story"
           title="Rooted in Scripture. Open to everyone seeking wholeness."
-          description={`${SITE.name} exists to help people become healthier — in their brains, bodies, and spirits — through what they consume, what they create, and how they conduct their lives.`}
+          description={`${SITE.name} exists to help people become healthier — in their brains, bodies, and spirits — through what they create, what they consume, and how they conduct their lives.`}
         >
           <VerseBanner className="mt-10" />
         </BrandedPageHeader>

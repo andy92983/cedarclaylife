@@ -14,8 +14,8 @@ export function Hero() {
           </p>
           <h1 className="heading-display mt-4 animate-fade-up text-bark">
             Whole-life wellness through what you{" "}
-            <span className="text-cedar-600">consume</span>,{" "}
-            <span className="text-clay-500">create</span>, and{" "}
+            <span className="text-clay-500">create</span>,{" "}
+            <span className="text-cedar-600">consume</span>, and{" "}
             <span className="text-sage-600">conduct</span>
           </h1>
           <p className="text-lead mx-auto mt-6 max-w-2xl animate-fade-up">

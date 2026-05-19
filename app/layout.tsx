@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description:
-    "Cedar & Clay offers natural home and bath products, elderberry wellness goods, creative studio classes, and 21 acres of trails in Redgranite, Wisconsin. Whole-person health through what you consume, create, and conduct.",
+    `Cedar & Clay offers natural home and bath products, elderberry wellness goods, creative studio classes, and 21 acres of trails in Redgranite, Wisconsin. ${SITE.motto}`,
   keywords: [...SEO_KEYWORDS],
   authors: [{ name: SITE.name }],
   creator: SITE.name,
