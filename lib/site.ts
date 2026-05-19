@@ -4,7 +4,6 @@ export const SITE = {
   /** Canonical order: create → consume → conduct */
   motto: "Whole-life wellness through what you create, consume, and conduct.",
   domain: "https://cedarclaylife.com",
-  email: "hello@cedarclaylife.com",
   phone: "(920) 538-6638",
   contactName: "Samantha Bergstrom",
   address: {

@@ -23,7 +23,6 @@ export function OrganizationSchema() {
         url: SITE.domain,
         description:
           "Faith-based holistic wellness — handmade products for home, bath, and health; creative studio classes; and 21 acres of walking and hiking trails in Redgranite, Wisconsin.",
-        email: SITE.email,
         telephone: SITE.phone,
         slogan: SITE.tagline,
         sameAs: Object.values(SITE.social).filter(Boolean),
@@ -41,7 +40,6 @@ export function LocalBusinessSchema() {
         "@type": "LocalBusiness",
         name: SITE.name,
         url: SITE.domain,
-        email: SITE.email,
         telephone: SITE.phone,
         description:
           "Handmade home, bath, and wellness products sold at county farmer's markets, plus creative studio classes and nature trails on 21 acres.",

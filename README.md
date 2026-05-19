@@ -79,3 +79,14 @@ python3 scripts/generate-price-sheets.py
 Updates `Prices.docx`, `FMPlants$.docx`, and `Directions for Elder berries.docx` with Cedar & Clay branding, logo, contact info, and **cedarclaylife.com**. Price fields stay blank for market day.
 
 Original `.doc` files remain as backups. Open the `.docx` versions to print.
+
+## Contact form (Resend)
+
+The contact page posts to `/api/contact` (Cloudflare Pages Function). In your Pages project → **Settings → Environment variables**, add:
+
+| Variable | Value |
+|----------|--------|
+| `RESEND_API_KEY` | Your Resend API key (`oristrade.com` must be verified in that account) |
+| `CONTACT_TO` | Optional — defaults to `hello@oristrade.com` |
+
+Emails send **from** `hello@oristrade.com` **to** `hello@oristrade.com`, with the visitor&apos;s address as reply-to. The form does not run during local static `npm run dev` unless you use Wrangler; it works on the deployed Cloudflare Pages site.

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BrandedPageHeader } from "@/components/layout/BrandedPageHeader";
+import { ContactForm } from "@/components/contact/ContactForm";
 import { BreadcrumbSchema } from "@/components/seo/JsonLd";
 import { formatAddress, SITE } from "@/lib/site";
 
@@ -35,58 +36,9 @@ export default function ContactPage() {
           <div className="card-soft">
             <h2 className="font-display text-2xl text-bark">Send a message</h2>
             <p className="mt-2 text-sm text-cedar-600">
-              Email us directly — online contact form coming soon.
+              We&apos;ll respond as soon as we can.
             </p>
-            <a
-              href={`mailto:${SITE.email}?subject=Cedar%20%26%20Clay%20inquiry`}
-              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-cedar-600 px-6 py-4 text-sm font-semibold text-white hover:bg-cedar-700 sm:w-auto"
-            >
-              Email {SITE.email}
-            </a>
-            <form className="mt-8 space-y-4 opacity-60" aria-label="Contact form preview">
-              <p className="text-xs font-medium uppercase tracking-wider text-sage-600">
-                Form launching soon
-              </p>
-              <div>
-                <label className="block text-sm font-medium text-bark">Name</label>
-                <input
-                  disabled
-                  type="text"
-                  className="mt-1 w-full rounded-xl border border-cedar-200 bg-cedar-50/50 px-4 py-3 text-sm"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-bark">Email</label>
-                <input
-                  disabled
-                  type="email"
-                  className="mt-1 w-full rounded-xl border border-cedar-200 bg-cedar-50/50 px-4 py-3 text-sm"
-                  placeholder="you@example.com"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-bark">I&apos;m interested in</label>
-                <select
-                  disabled
-                  className="mt-1 w-full rounded-xl border border-cedar-200 bg-cedar-50/50 px-4 py-3 text-sm"
-                >
-                  <option>Studio classes</option>
-                  <option>Products</option>
-                  <option>Trail visit</option>
-                  <option>General inquiry</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-bark">Message</label>
-                <textarea
-                  disabled
-                  rows={4}
-                  className="mt-1 w-full rounded-xl border border-cedar-200 bg-cedar-50/50 px-4 py-3 text-sm"
-                  placeholder="Tell us a little about what you're looking for..."
-                />
-              </div>
-            </form>
+            <ContactForm />
           </div>
 
           <div className="space-y-6">
@@ -100,11 +52,10 @@ export default function ContactPage() {
                 </li>
                 <li>{formatAddress()}</li>
                 <li>
-                  <a href={`mailto:${SITE.email}`} className="link-underline">
-                    {SITE.email}
+                  <a href={SITE.domain} className="link-underline">
+                    cedarclaylife.com
                   </a>
                 </li>
-                <li className="text-cedar-500">cedarclaylife.com</li>
               </ul>
             </div>
             <div className="card-soft">

@@ -153,9 +153,9 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2 text-sm text-cedar-200">
               <li>
-                <a href={`mailto:${SITE.email}`} className="hover:text-white">
-                  {SITE.email}
-                </a>
+                <Link href="/contact" className="hover:text-white">
+                  Send a message
+                </Link>
               </li>
               <li>
                 <a href={`tel:${SITE.phone.replace(/\D/g, "")}`} className="hover:text-white">
