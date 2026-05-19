@@ -60,6 +60,22 @@ Edit `lib/site.ts` for contact info and social links.
 Edit `lib/products.ts` for the farmer's market catalog.  
 Edit `lib/content.ts` for studio, trails, and FAQ copy.
 
-## Label docs (separate step)
+## Product labels
 
-Product label `.doc` / `.docx` files in the project root will be beautified in a follow-up pass — adding Cedar & Clay branding and cedarclaylife.com to printed labels.
+**Avery sticker/direction sheets** (preserve label layout):
+
+```bash
+python3 scripts/generate-labels.py
+```
+
+Outputs `*-print.docx` files for laundry, elderberry, bath salt, and directions labels.
+
+**Price sheets** (logo header, styled table, blank prices):
+
+```bash
+python3 scripts/generate-price-sheets.py
+```
+
+Updates `Prices.docx`, `FMPlants$.docx`, and `Directions for Elder berries.docx` with Cedar & Clay branding, logo, contact info, and **cedarclaylife.com**. Price fields stay blank for market day.
+
+Original `.doc` files remain as backups. Open the `.docx` versions to print.

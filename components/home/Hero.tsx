@@ -1,4 +1,5 @@
 import { SITE } from "@/lib/site";
+import { PageBrandBanner } from "@/components/layout/PageBrandBanner";
 import { Button } from "@/components/ui/Button";
 
 export function Hero() {
@@ -7,6 +8,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream" />
       <div className="section-padding container-wide relative">
         <div className="mx-auto max-w-4xl text-center">
+          <PageBrandBanner className="animate-fade-in mb-6" />
           <p className="animate-fade-in text-sm font-semibold uppercase tracking-[0.25em] text-sage-600">
             {SITE.tagline}
           </p>
@@ -47,7 +49,7 @@ export function Hero() {
 export function VerseBanner({ className = "" }: { className?: string }) {
   return (
     <blockquote
-      className={`rounded-2xl border border-cedar-200/80 bg-white/60 px-6 py-5 text-left backdrop-blur-sm ${className}`}
+      className={`rounded-2xl border border-cedar-200/80 bg-cedar-50/90 px-6 py-5 text-left backdrop-blur-sm ${className}`}
     >
       <p className="font-display text-lg italic leading-relaxed text-cedar-800 sm:text-xl">
         &ldquo;{SITE.verse.text}&rdquo;

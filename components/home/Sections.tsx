@@ -5,7 +5,7 @@ import { SectionIntro } from "@/components/home/Hero";
 
 export function PillarsGrid() {
   return (
-    <section className="section-padding bg-white/50">
+    <section className="section-padding bg-cedar-50/40">
       <div className="container-wide">
         <SectionIntro
           eyebrow="Six pillars"
@@ -85,7 +85,7 @@ export function StudioHighlight() {
                 </p>
               </div>
             </div>
-            <div className="absolute -bottom-4 -left-4 rounded-2xl bg-white px-5 py-4 shadow-lg">
+            <div className="absolute -bottom-4 -left-4 rounded-2xl bg-cream px-5 py-4 shadow-lg">
               <p className="font-display text-3xl text-cedar-600">{21}</p>
               <p className="text-xs font-medium uppercase tracking-wider text-cedar-500">
                 Acres to explore

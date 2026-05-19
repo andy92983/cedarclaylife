@@ -56,7 +56,7 @@ export function Logo({ className, variant = "header" }: LogoProps) {
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-cedar-200/50 bg-cream/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-cedar-200/50 bg-cream backdrop-blur-sm">
       <div className="container-wide flex items-center justify-between px-5 py-4 sm:px-8">
         <Logo />
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
@@ -89,7 +89,7 @@ function MobileNav() {
         Menu
       </summary>
       <nav
-        className="absolute right-0 top-full mt-2 min-w-[200px] rounded-xl border border-cedar-200 bg-white p-2 shadow-lg"
+        className="absolute right-0 top-full mt-2 min-w-[200px] rounded-xl border border-cedar-200 bg-cream p-2 shadow-lg"
         aria-label="Mobile"
       >
         {NAV.map((item) => (

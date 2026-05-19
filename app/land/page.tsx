@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionIntro } from "@/components/home/Hero";
+import { BrandedPageHeader } from "@/components/layout/BrandedPageHeader";
 import { BreadcrumbSchema } from "@/components/seo/JsonLd";
 import { TRAIL_FEATURES } from "@/lib/content";
 import { SITE } from "@/lib/site";
@@ -26,19 +26,18 @@ export default function LandPage() {
           { name: "Land & Trails", url: `${SITE.domain}/land` },
         ]}
       />
-      <header className="section-padding relative overflow-hidden bg-gradient-to-br from-sage-100 via-cedar-50 to-cream border-b border-cedar-200/50">
-        <div className="container-narrow relative">
-          <SectionIntro
-            eyebrow={`${SITE.acres} acres`}
-            title="Walk, hike, and breathe"
-            description="Movement is not an afterthought here. Our land invites slow conversation, prayer walks, family outings, and the kind of quiet that helps body and spirit catch up to each other."
-          />
-        </div>
+      <div className="relative overflow-hidden border-b border-cedar-200/50">
+        <BrandedPageHeader
+          className="border-b-0 bg-gradient-to-br from-sage-100 via-cedar-50 to-cream"
+          eyebrow={`${SITE.acres} acres`}
+          title="Walk, hike, and breathe"
+          description="Movement is not an afterthought here. Our land invites slow conversation, prayer walks, family outings, and the kind of quiet that helps body and spirit catch up to each other."
+        />
         <div
           className="pointer-events-none absolute bottom-0 left-1/2 h-48 w-[120%] -translate-x-1/2 rounded-[100%] bg-sage-200/30 blur-2xl"
           aria-hidden
         />
-      </header>
+      </div>
 
       <section className="section-padding">
         <div className="container-wide grid gap-8 sm:grid-cols-2">

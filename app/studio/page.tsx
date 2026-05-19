@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionIntro } from "@/components/home/Hero";
+import { BrandedPageHeader } from "@/components/layout/BrandedPageHeader";
 import { BreadcrumbSchema } from "@/components/seo/JsonLd";
 import { STUDIO_OFFERINGS } from "@/lib/content";
 import { SITE } from "@/lib/site";
@@ -27,15 +27,11 @@ export default function StudioPage() {
           { name: "Studio & Classes", url: `${SITE.domain}/studio` },
         ]}
       />
-      <header className="section-padding bg-hero-gradient bg-grain border-b border-cedar-200/50">
-        <div className="container-narrow">
-          <SectionIntro
-            eyebrow="Learn · Create · Grow"
-            title="A studio space for makers, families, and curious beginners"
-            description="Graphic design, art, 3D printing, sewing, and crafts — with classes built around your level. Finally, a place where glitter is someone else's problem."
-          />
-        </div>
-      </header>
+      <BrandedPageHeader
+        eyebrow="Learn · Create · Grow"
+        title="A studio space for makers, families, and curious beginners"
+        description="Graphic design, art, 3D printing, sewing, and crafts — with classes built around your level. Finally, a place where glitter is someone else's problem."
+      />
 
       <section className="section-padding">
         <div className="container-wide grid gap-8 md:grid-cols-2">

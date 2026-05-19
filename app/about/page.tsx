@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionIntro, VerseBanner } from "@/components/home/Hero";
+import { BrandedPageHeader } from "@/components/layout/BrandedPageHeader";
+import { VerseBanner } from "@/components/home/Hero";
 import { BreadcrumbSchema } from "@/components/seo/JsonLd";
 import { SITE } from "@/lib/site";
 
@@ -27,16 +28,13 @@ export default function AboutPage() {
         ]}
       />
       <article>
-        <header className="section-padding bg-hero-gradient bg-grain border-b border-cedar-200/50">
-          <div className="container-narrow">
-            <SectionIntro
-              eyebrow="Our story"
-              title="Rooted in Scripture. Open to everyone seeking wholeness."
-              description={`${SITE.name} exists to help people become healthier — in their brains, bodies, and spirits — through what they consume, what they create, and how they conduct their lives.`}
-            />
-            <VerseBanner className="mt-10" />
-          </div>
-        </header>
+        <BrandedPageHeader
+          eyebrow="Our story"
+          title="Rooted in Scripture. Open to everyone seeking wholeness."
+          description={`${SITE.name} exists to help people become healthier — in their brains, bodies, and spirits — through what they consume, what they create, and how they conduct their lives.`}
+        >
+          <VerseBanner className="mt-10" />
+        </BrandedPageHeader>
 
         <section className="section-padding">
           <div className="container-narrow prose-cedar mx-auto max-w-3xl space-y-8 text-cedar-700 leading-relaxed">

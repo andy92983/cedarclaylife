@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionIntro } from "@/components/home/Hero";
+import { BrandedPageHeader } from "@/components/layout/BrandedPageHeader";
 import { BreadcrumbSchema, ProductListSchema } from "@/components/seo/JsonLd";
 import {
   MARKET_PRODUCTS,
@@ -33,18 +33,15 @@ export default function ProductsPage() {
         ]}
       />
       <ProductListSchema />
-      <header className="section-padding bg-hero-gradient bg-grain border-b border-cedar-200/50">
-        <div className="container-narrow">
-          <SectionIntro
-            eyebrow="Farmer's market"
-            title="Handmade products for home, body, and health"
-            description="Everything below is made in small batches on our acreage in Redgranite, Wisconsin. Prices are set at the booth each market day — visit us to see what's fresh."
-          />
-          <p className="mx-auto mt-6 max-w-2xl rounded-xl border border-sage-200 bg-sage-50/80 px-5 py-4 text-center text-sm text-sage-800">
-            {SITE.marketNote}
-          </p>
-        </div>
-      </header>
+      <BrandedPageHeader
+        eyebrow="Farmer's market"
+        title="Handmade products for home, body, and health"
+        description="Everything below is made in small batches on our acreage in Redgranite, Wisconsin. Prices are set at the booth each market day — visit us to see what's fresh."
+      >
+        <p className="mx-auto mt-6 max-w-2xl rounded-xl border border-sage-200 bg-sage-50/80 px-5 py-4 text-center text-sm text-sage-800">
+          {SITE.marketNote}
+        </p>
+      </BrandedPageHeader>
 
       <section className="section-padding">
         <div className="container-wide space-y-20">

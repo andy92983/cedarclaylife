@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SectionIntro } from "@/components/home/Hero";
+import { BrandedPageHeader } from "@/components/layout/BrandedPageHeader";
 import { BreadcrumbSchema } from "@/components/seo/JsonLd";
 import { formatAddress, SITE } from "@/lib/site";
 
@@ -24,15 +24,11 @@ export default function ContactPage() {
           { name: "Contact", url: `${SITE.domain}/contact` },
         ]}
       />
-      <header className="section-padding bg-hero-gradient bg-grain border-b border-cedar-200/50">
-        <div className="container-narrow">
-          <SectionIntro
-            eyebrow="We'd love to hear from you"
-            title="Visit, learn, and grow with us"
-            description="Whether you're interested in products, studio classes, trail walks, or simply want to know when we open — reach out. We'll respond as soon as we can."
-          />
-        </div>
-      </header>
+      <BrandedPageHeader
+        eyebrow="We'd love to hear from you"
+        title="Visit, learn, and grow with us"
+        description="Whether you're interested in products, studio classes, trail walks, or simply want to know when we open — reach out. We'll respond as soon as we can."
+      />
 
       <section className="section-padding">
         <div className="container-narrow grid gap-12 lg:grid-cols-2">
