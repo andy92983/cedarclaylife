@@ -138,7 +138,7 @@ export function MarketHighlight() {
           <SectionIntro
             eyebrow="Farmer's market"
             title="Handmade goods from our acreage in Redgranite"
-            description="Elderberry syrup, laundry soap, bath soaks, vanilla goods, farm eggs, garden plants, and more — sold at our county farmer's market. Prices set fresh each market day."
+            description="Elderberry syrup, laundry soap, bath soaks, vanilla goods, farm eggs, garden plants, and more — sold at our county farmer's market with fair, homemade pricing."
             centered={false}
           />
           <div className="card-soft">

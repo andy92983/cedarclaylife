@@ -129,7 +129,7 @@ export const FAQ = [
   {
     question: "Where can I buy your products?",
     answer:
-      "Find us at our county farmer's market in Redgranite, Wisconsin. Our website lists everything we make — prices are set at the booth each market day. Contact us for the next market date.",
+      "Find us at our county farmer's market in Redgranite, Wisconsin. Our website lists everything we make with typical booth prices. Contact us for the next market date.",
   },
   {
     question: "Are your products natural and handmade?",

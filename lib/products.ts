@@ -8,8 +8,10 @@ export type MarketProduct = {
   ingredients?: string;
   directions?: string;
   caution?: string;
-  /** Blank at farmer's market until prices are set */
-  price: null;
+  /** Typical farmer's market price (USD) */
+  price: number;
+  /** Size or unit shown beside price — helps set expectations for simple packaging */
+  priceUnit?: string;
   status: "available" | "seasonal";
 };
 
@@ -40,7 +42,11 @@ export const PRODUCT_CATEGORIES: {
   },
 ];
 
-/** Catalog sourced from product label & pricing sheets — prices left blank for market day. */
+/**
+ * Recommended booth prices for a county farmer's market in Wisconsin.
+ * Sized for simple, homemade packaging (bags, jars, labels) — below boutique retail,
+ * fair for small-batch ingredients and labor.
+ */
 export const MARKET_PRODUCTS: MarketProduct[] = [
   // Home
   {
@@ -50,7 +56,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     description: "Homemade powder detergent for everyday loads and extra-dirty items.",
     ingredients: "Washing soda, baking soda, borax, Oxi Clean, bar soap (shavings)",
     directions: "Use 1 tbsp per regular load. Use 2 tbsp for extra dirty items.",
-    price: null,
+    price: 10,
+    priceUnit: "· ~32 oz bag",
     status: "available",
   },
   {
@@ -58,7 +65,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Fire Starters",
     category: "home",
     description: "Handmade starters to get your fire going quickly and naturally.",
-    price: null,
+    price: 7,
+    priceUnit: "· 6-pack",
     status: "available",
   },
   {
@@ -66,7 +74,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Vanilla",
     category: "home",
     description: "Pure vanilla for baking and everyday kitchen use.",
-    price: null,
+    price: 12,
+    priceUnit: "· 2 oz bottle",
     status: "available",
   },
   {
@@ -74,7 +83,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Vanilla Sugar",
     category: "home",
     description: "Aromatic vanilla-infused sugar for coffee, baking, and gifting.",
-    price: null,
+    price: 7,
+    priceUnit: "· 8 oz bag",
     status: "available",
   },
   {
@@ -82,7 +92,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Farm Fresh Eggs",
     category: "home",
     description: "Fresh eggs from our acreage — available while supplies last.",
-    price: null,
+    price: 5,
+    priceUnit: "per dozen",
     status: "seasonal",
   },
   // Wellness
@@ -96,7 +107,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
       "Recommended serving: 1 tbsp for adults, 1 tsp for children. Keep refrigerated.",
     caution:
       "Do not consume raw elderberries. Honey is not safe for children under one year old. Product produced in a private residence exempt from state licensing and inspection.",
-    price: null,
+    price: 18,
+    priceUnit: "· 8 oz bottle",
     status: "available",
   },
   {
@@ -110,7 +122,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
       "Stovetop: Simmer contents with 4 cups water 1 hour until reduced by half. Cool, strain, add 1 cup honey. Instant Pot: High pressure 8 minutes, vent, mash, strain, cool, add honey.",
     caution:
       "Do not consume raw elderberries. Honey is not safe for children under one year old. Product produced in a private residence exempt from state licensing and inspection.",
-    price: null,
+    price: 14,
+    priceUnit: "· makes ~16 oz batch",
     status: "available",
   },
   // Bath & Body
@@ -122,7 +135,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     ingredients: "Pink Himalayan salt, epsom salt, baking soda, borax",
     directions:
       "Fill tub with warm water. Use ½ cup for children over 60 lbs, 1 cup for adults. Soak 20–40 minutes. Rinse with fresh water afterward. Hydrate before and after.",
-    price: null,
+    price: 10,
+    priceUnit: "· 12 oz bag",
     status: "available",
   },
   {
@@ -133,7 +147,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     ingredients: "Bentonite clay, epsom salt, essential oils",
     directions:
       "Fill tub with warm water. Use ½ cup for children over 60 lbs, 1 cup for adults. Soak 20–40 minutes. Rinse with fresh water afterward. Hydrate before and after.",
-    price: null,
+    price: 10,
+    priceUnit: "· 12 oz bag",
     status: "available",
   },
   {
@@ -144,7 +159,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     ingredients: "Epsom salt, baking soda, essential oils",
     directions:
       "Fill tub with warm water. Use ½ cup for children over 60 lbs, 1 cup for adults. Soak 20–40 minutes. Rinse with fresh water afterward. Hydrate before and after.",
-    price: null,
+    price: 9,
+    priceUnit: "· 12 oz bag",
     status: "available",
   },
   {
@@ -152,7 +168,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Foot / Armpit Mask",
     category: "bath",
     description: "Drawing mask for feet and underarms — part of a natural care routine.",
-    price: null,
+    price: 8,
+    priceUnit: "· 4 oz jar",
     status: "available",
   },
   {
@@ -160,7 +177,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Foot Soak",
     category: "bath",
     description: "Soothing soak blend for tired feet after a long day or trail walk.",
-    price: null,
+    price: 8,
+    priceUnit: "· 8 oz bag",
     status: "available",
   },
   {
@@ -168,7 +186,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Tallow Lotion",
     category: "bath",
     description: "Nourishing tallow-based lotion for dry skin — simple and effective.",
-    price: null,
+    price: 12,
+    priceUnit: "· 2 oz jar",
     status: "available",
   },
   {
@@ -176,7 +195,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Sugar Scrub (Peppermint)",
     category: "bath",
     description: "Invigorating peppermint sugar scrub for smooth, refreshed skin.",
-    price: null,
+    price: 10,
+    priceUnit: "· 8 oz jar",
     status: "available",
   },
   // Garden
@@ -185,7 +205,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Lily of the Valley",
     category: "garden",
     description: "Classic shade-loving perennial — seasonal availability.",
-    price: null,
+    price: 8,
+    priceUnit: "· potted division",
     status: "seasonal",
   },
   {
@@ -193,7 +214,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Comfrey",
     category: "garden",
     description: "Hardy herbaceous plant — seasonal availability.",
-    price: null,
+    price: 6,
+    priceUnit: "· starter plant",
     status: "seasonal",
   },
   {
@@ -201,7 +223,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Motherwort",
     category: "garden",
     description: "Traditional garden herb — seasonal availability.",
-    price: null,
+    price: 6,
+    priceUnit: "· starter plant",
     status: "seasonal",
   },
   {
@@ -209,7 +232,8 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Daylilies",
     category: "garden",
     description: "Reliable, beautiful daylily divisions from our gardens.",
-    price: null,
+    price: 6,
+    priceUnit: "· division",
     status: "seasonal",
   },
   {
@@ -217,11 +241,21 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Iris",
     category: "garden",
     description: "Hardy iris rhizomes — seasonal availability.",
-    price: null,
+    price: 7,
+    priceUnit: "· rhizome",
     status: "seasonal",
   },
 ];
 
 export function productsByCategory(category: ProductCategory) {
   return MARKET_PRODUCTS.filter((p) => p.category === category);
+}
+
+export function formatProductPrice(product: MarketProduct): string {
+  const dollars = Number.isInteger(product.price)
+    ? `$${product.price}`
+    : `$${product.price.toFixed(2)}`;
+  if (!product.priceUnit) return dollars;
+  if (product.priceUnit.startsWith("per ")) return `${dollars} ${product.priceUnit}`;
+  return `${dollars} ${product.priceUnit}`;
 }

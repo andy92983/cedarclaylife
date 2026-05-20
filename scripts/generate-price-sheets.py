@@ -29,6 +29,29 @@ SAGE = RGBColor(0x63, 0x7A, 0x56)
 BARK = RGBColor(0x2E, 0x22, 0x19)
 MUTED = RGBColor(0x96, 0x6B, 0x45)
 
+# Typical farmer's market prices (USD) — keep in sync with lib/products.ts
+MARKET_PRICES: dict[str, str] = {
+    "Elderberry syrup kits": "$14 · makes ~16 oz batch",
+    "Elderberry syrup": "$18 · 8 oz bottle",
+    "Vanilla": "$12 · 2 oz bottle",
+    "Vanilla sugar": "$7 · 8 oz bag",
+    "Eggs": "$5 per dozen",
+    "Laundry Soap": "$10 · ~32 oz bag",
+    "Fire starters": "$7 · 6-pack",
+    "Pink Himalayan Detox Bath": "$10 · 12 oz bag",
+    "Bath Soak": "$9 · 12 oz bag",
+    "Bentonite Clay Bath Soak": "$10 · 12 oz bag",
+    "Foot / Armpit Mask": "$8 · 4 oz jar",
+    "Foot soak": "$8 · 8 oz bag",
+    "Tallow Lotion": "$12 · 2 oz jar",
+    "Sugar Scrub (Peppermint)": "$10 · 8 oz jar",
+    "Lily of the Valley": "$8 · potted division",
+    "Comfrey": "$6 · starter plant",
+    "Motherwort": "$6 · starter plant",
+    "Daylilies": "$6 · division",
+    "Iris": "$7 · rhizome",
+}
+
 
 def set_cell_shading(cell, fill: str) -> None:
     shading = OxmlElement("w:shd")
@@ -117,26 +140,7 @@ def build_prices_sheet() -> Document:
     add_brand_header(doc)
     add_product_title(doc, "Farmer's Market Prices")
 
-    items = [
-        "Elderberry syrup kits",
-        "Elderberry syrup",
-        "Vanilla",
-        "Vanilla sugar",
-        "Eggs",
-        "Laundry Soap",
-        "Fire starters",
-        "Pink Himalayan Detox Bath",
-        "Bath Soak",
-        "Foot / Armpit Mask",
-        "Foot soak",
-        "Tallow Lotion",
-        "Sugar Scrub (Peppermint)",
-        "Lily of the Valley",
-        "Comfrey",
-        "Motherwort",
-        "Daylilies",
-        "Iris",
-    ]
+    items = list(MARKET_PRICES.keys())
 
     table = doc.add_table(rows=len(items) + 1, cols=2)
     table.style = "Table Grid"
@@ -152,7 +156,7 @@ def build_prices_sheet() -> Document:
     for idx, item in enumerate(items, start=1):
         row = table.rows[idx].cells
         row[0].text = item
-        row[1].text = ""
+        row[1].text = MARKET_PRICES.get(item, "")
         for p in row[0].paragraphs:
             for run in p.runs:
                 style_run(run, size=10, color=BARK)
@@ -238,7 +242,8 @@ def build_plants_sheet() -> Document:
         p = doc.add_paragraph()
         name = p.add_run(plant)
         style_run(name, size=12, bold=True, color=CEDAR)
-        price = p.add_run("  —  Price: __________")
+        price_text = MARKET_PRICES.get(plant, "")
+        price = p.add_run(f"  —  {price_text}" if price_text else "  —  Price: __________")
         style_run(price, size=11, color=CLAY)
         p.paragraph_format.space_after = Pt(10)
 

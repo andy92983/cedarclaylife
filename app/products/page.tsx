@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BrandedPageHeader } from "@/components/layout/BrandedPageHeader";
 import { BreadcrumbSchema, ProductListSchema } from "@/components/seo/JsonLd";
 import {
+  formatProductPrice,
   MARKET_PRODUCTS,
   PRODUCT_CATEGORIES,
   productsByCategory,
@@ -36,7 +37,7 @@ export default function ProductsPage() {
       <BrandedPageHeader
         eyebrow="Farmer's market"
         title="Handmade products for home, body, and health"
-        description="Everything below is made in small batches on our acreage in Redgranite, Wisconsin. Prices are set at the booth each market day — visit us to see what's fresh."
+        description="Everything below is made in small batches on our acreage in Redgranite, Wisconsin. Typical booth prices reflect simple, homemade packaging — fair for a local farmer's market."
       >
         <p className="mx-auto mt-6 max-w-2xl rounded-xl border border-sage-200 bg-sage-50/80 px-5 py-4 text-center text-sm text-sage-800">
           {SITE.marketNote}
@@ -89,14 +90,11 @@ export default function ProductsPage() {
                       {product.caution && (
                         <p className="mt-2 text-xs text-clay-700">{product.caution}</p>
                       )}
-                      <div className="mt-4 flex items-center justify-between border-t border-cedar-100 pt-4">
-                        <span className="text-sm font-medium text-cedar-500">Market price</span>
-                        <span
-                          className="font-display text-lg text-cedar-400"
-                          aria-label="Price to be set at farmer's market"
-                        >
-                          —
-                        </span>
+                      <div className="mt-4 border-t border-cedar-100 pt-4">
+                        <p className="font-display text-xl text-cedar-800">
+                          {formatProductPrice(product)}
+                        </p>
+                        <p className="mt-0.5 text-xs text-cedar-500">Typical booth price</p>
                       </div>
                     </article>
                   ))}
