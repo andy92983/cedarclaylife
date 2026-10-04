@@ -73,7 +73,7 @@ export async function onRequestPost(context) {
   const subtotal = unit * qty;
 
   const row = {
-    status: "pending",
+    status: "processing",
     product_id: productId,
     product_name: product.name,
     quantity: qty,

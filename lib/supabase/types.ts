@@ -1,9 +1,9 @@
 export type PreorderStatus =
-  | "pending"
-  | "confirmed"
-  | "paid"
+  | "processing"
+  | "shipping"
   | "shipped"
-  | "cancelled";
+  | "delivered"
+  | "completed";
 
 export type Preorder = {
   id: string;
@@ -22,20 +22,31 @@ export type Preorder = {
   notes: string | null;
 };
 
+export type PreorderEditFields = {
+  quantity: number;
+  customer_phone: string;
+  shipping_address: string;
+  notes: string;
+};
+
 export const PREORDER_STATUSES: PreorderStatus[] = [
-  "pending",
-  "confirmed",
-  "paid",
+  "processing",
+  "shipping",
   "shipped",
-  "cancelled",
+  "delivered",
+  "completed",
 ];
 
 /** Admin UI lives in OrisTrade Journal — not on this site. */
 export const ORISTRADE_ADMIN_ORDERS_URL =
   "https://journal.oristrade.com/admin/cedarclay-orders";
 
-export function formatStatus(status: PreorderStatus): string {
+export function formatStatus(status: string): string {
   return status.charAt(0).toUpperCase() + status.slice(1);
+}
+
+export function canCustomerEdit(status: string): boolean {
+  return status === "processing" || status === "pending";
 }
 
 /** Supabase table in the OrisTrade project */

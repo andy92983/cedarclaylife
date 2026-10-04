@@ -5,7 +5,11 @@ import type { Session } from "@supabase/supabase-js";
 import { AuthPanel } from "@/components/orders/AuthPanel";
 import { OrdersList } from "@/components/orders/OrdersList";
 import { getSupabaseBrowserClient, isSupabaseConfigured } from "@/lib/supabase/client";
-import { PREORDERS_TABLE, type Preorder } from "@/lib/supabase/types";
+import {
+  PREORDERS_TABLE,
+  type Preorder,
+  type PreorderEditFields,
+} from "@/lib/supabase/types";
 
 export function MyOrdersClient() {
   const [session, setSession] = useState<Session | null>(null);
@@ -45,38 +49,55 @@ export function MyOrdersClient() {
     };
   }, []);
 
+  async function loadOrders() {
+    const supabase = getSupabaseBrowserClient();
+    if (!supabase) return;
+
+    setLoading(true);
+    setError("");
+    const { data, error: fetchError } = await supabase
+      .from(PREORDERS_TABLE)
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (fetchError) {
+      setError(fetchError.message);
+      setOrders([]);
+    } else {
+      setOrders((data as Preorder[]) ?? []);
+    }
+    setLoading(false);
+  }
+
   useEffect(() => {
     if (!session) {
       setOrders([]);
       return;
     }
-
-    const supabase = getSupabaseBrowserClient();
-    if (!supabase) return;
-
-    let active = true;
-    setLoading(true);
-    setError("");
-
-    supabase
-      .from(PREORDERS_TABLE)
-      .select("*")
-      .order("created_at", { ascending: false })
-      .then(({ data, error: fetchError }) => {
-        if (!active) return;
-        if (fetchError) {
-          setError(fetchError.message);
-          setOrders([]);
-        } else {
-          setOrders((data as Preorder[]) ?? []);
-        }
-        setLoading(false);
-      });
-
-    return () => {
-      active = false;
-    };
+    void loadOrders();
   }, [session]);
+
+  async function saveCustomerEdit(id: string, fields: PreorderEditFields) {
+    const supabase = getSupabaseBrowserClient();
+    if (!supabase) throw new Error("Not signed in.");
+
+    const order = orders.find((o) => o.id === id);
+    const subtotal = order ? order.unit_price_usd * fields.quantity : undefined;
+
+    const { error: updateError } = await supabase
+      .from(PREORDERS_TABLE)
+      .update({
+        quantity: fields.quantity,
+        customer_phone: fields.customer_phone.trim() || null,
+        shipping_address: fields.shipping_address.trim(),
+        notes: fields.notes.trim() || null,
+        ...(subtotal !== undefined ? { subtotal_usd: subtotal } : {}),
+      })
+      .eq("id", id);
+
+    if (updateError) throw new Error(updateError.message);
+    await loadOrders();
+  }
 
   async function signOut() {
     const supabase = getSupabaseBrowserClient();
@@ -122,6 +143,7 @@ export function MyOrdersClient() {
         <OrdersList
           orders={orders}
           emptyMessage="No pre-orders found for this email yet. Submit one on the Pre-Order page — use this same email so they show up here."
+          onCustomerSave={saveCustomerEdit}
         />
       )}
     </div>
