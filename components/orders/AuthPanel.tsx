@@ -77,9 +77,18 @@ export function AuthPanel({
       <div className="rounded-xl border border-sage-200 bg-sage-50/80 px-5 py-6 text-sm text-cedar-800">
         <p className="font-display text-lg text-bark">Check your email</p>
         <p className="mt-2">
-          We sent a sign-in link to <span className="font-semibold">{email}</span>. Open it on
-          this device to view your orders. The link should open{" "}
-          <span className="font-semibold">cedarclaylife.com</span> — not OrisTrade.
+          We sent a sign-in link to <span className="font-semibold">{email}</span>.
+        </p>
+        <p className="mt-3 rounded-lg border border-clay-200 bg-clay-50/80 px-3 py-2.5 text-clay-900">
+          Look for an email from{" "}
+          <span className="font-semibold">OrisTrade</span> (our sign-in system). Check your{" "}
+          <span className="font-semibold">Spam</span> or{" "}
+          <span className="font-semibold">Junk</span> folder if you don&apos;t see it within a few
+          minutes.
+        </p>
+        <p className="mt-3 text-cedar-700">
+          Open the link on this device. It should take you to{" "}
+          <span className="font-semibold">cedarclaylife.com</span> to view your orders.
         </p>
       </div>
     );
