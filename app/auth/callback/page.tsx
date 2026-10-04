@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { NEXT_PATH_KEY } from "@/components/orders/AuthPanel";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 
 export default function AuthCallbackPage() {
@@ -16,7 +17,16 @@ export default function AuthCallbackPage() {
     }
 
     const params = new URLSearchParams(window.location.search);
-    const next = params.get("next") || "/orders";
+    let next = "/orders";
+    try {
+      next = localStorage.getItem(NEXT_PATH_KEY) || params.get("next") || "/orders";
+      localStorage.removeItem(NEXT_PATH_KEY);
+    } catch {
+      next = params.get("next") || "/orders";
+    }
+
+    if (!next.startsWith("/")) next = "/orders";
+
     const code = params.get("code");
 
     async function finish() {
@@ -27,7 +37,6 @@ export default function AuthCallbackPage() {
           return;
         }
       } else {
-        // Hash-based links (older magic link flow)
         const { data } = await supabase!.auth.getSession();
         if (!data.session) {
           setMessage("Could not complete sign-in. Request a new link from the orders page.");

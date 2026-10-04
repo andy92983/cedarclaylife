@@ -4,6 +4,8 @@ import { useState } from "react";
 import { getSupabaseBrowserClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { SITE } from "@/lib/site";
 
+const NEXT_PATH_KEY = "cedarclay_auth_next";
+
 type Props = {
   redirectPath: string;
   title?: string;
@@ -43,10 +45,18 @@ export function AuthPanel({
       return;
     }
 
+    // Keep redirect URL exact (no query string) so Supabase allow-list matches.
+    // Otherwise GoTrue falls back to the project Site URL (oristrade.com).
+    try {
+      localStorage.setItem(NEXT_PATH_KEY, redirectPath || "/orders");
+    } catch {
+      // ignore private mode failures
+    }
+
     const redirectTo =
       typeof window !== "undefined"
-        ? `${window.location.origin}/auth/callback?next=${encodeURIComponent(redirectPath)}`
-        : `${SITE.domain}/auth/callback?next=${encodeURIComponent(redirectPath)}`;
+        ? `${window.location.origin}/auth/callback`
+        : `${SITE.domain}/auth/callback`;
 
     const { error: signInError } = await supabase.auth.signInWithOtp({
       email: email.trim(),
@@ -68,7 +78,8 @@ export function AuthPanel({
         <p className="font-display text-lg text-bark">Check your email</p>
         <p className="mt-2">
           We sent a sign-in link to <span className="font-semibold">{email}</span>. Open it on
-          this device to view your orders.
+          this device to view your orders. The link should open{" "}
+          <span className="font-semibold">cedarclaylife.com</span> — not OrisTrade.
         </p>
       </div>
     );
@@ -111,3 +122,5 @@ export function AuthPanel({
     </form>
   );
 }
+
+export { NEXT_PATH_KEY };
