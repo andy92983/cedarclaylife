@@ -1,6 +1,7 @@
 /**
  * Cloudflare Pages Function — stores pre-orders in Supabase and emails via Resend.
- * Payment is collected offline after you contact the buyer.
+ * Returns success as soon as Supabase saves; email is sent in the background (waitUntil)
+ * so the browser does not time out waiting for Resend.
  *
  * Env:
  *   SUPABASE_URL
@@ -102,49 +103,94 @@ export async function onRequestPost(context) {
     return json({ error: "Could not save pre-order. Please try again or contact us." }, 502);
   }
 
-  const saved = await insertRes.json();
-  const orderId = Array.isArray(saved) ? saved[0]?.id : saved?.id;
+  let orderId = null;
+  try {
+    const saved = await insertRes.json();
+    orderId = Array.isArray(saved) ? saved[0]?.id : saved?.id;
+  } catch (e) {
+    console.error("Supabase parse error:", e);
+  }
 
   if (env.RESEND_API_KEY) {
-    const subject = `Cedar & Clay pre-order — ${product.name} × ${qty}`;
-    const html = `
-      <p><strong>Pre-order saved</strong> (payment offline)</p>
-      <p><strong>Order ID:</strong> ${escapeHtml(orderId || "—")}</p>
-      <p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>
-      <p><strong>Phone:</strong> ${escapeHtml(phone?.trim() || "—")}</p>
-      <p><strong>Ship to:</strong><br>${escapeHtml(address.trim()).replace(/\n/g, "<br>")}</p>
-      <hr>
-      <p><strong>Product:</strong> ${escapeHtml(product.name)}</p>
-      <p><strong>Quantity:</strong> ${qty}</p>
-      <p><strong>Est. unit (online):</strong> $${unit}</p>
-      <p><strong>Est. product subtotal:</strong> $${subtotal}</p>
-      <p style="color:#666;font-size:13px;">Plus packing (~$2) and shipping to confirm. View all orders: https://journal.oristrade.com/admin/cedarclay-orders</p>
-      <p><strong>Notes:</strong></p>
-      <p>${escapeHtml(notes?.trim() || "—").replace(/\n/g, "<br>")}</p>
-    `;
-
-    const mailRes = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: FROM,
-        to: [env.CONTACT_TO || CONTACT_TO],
-        reply_to: email.trim(),
-        subject,
-        html,
-      }),
+    const notify = sendNotifyEmail({
+      apiKey: env.RESEND_API_KEY,
+      to: env.CONTACT_TO || CONTACT_TO,
+      orderId,
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone?.trim() || "",
+      address: address.trim(),
+      notes: notes?.trim() || "",
+      productName: product.name,
+      qty,
+      unit,
+      subtotal,
     });
 
-    if (!mailRes.ok) {
-      console.error("Resend error:", mailRes.status, await mailRes.text());
-      // Order already saved — still succeed
+    if (typeof context.waitUntil === "function") {
+      context.waitUntil(notify);
+    } else {
+      // Fallback if waitUntil unavailable — still await, but order is already saved
+      try {
+        await notify;
+      } catch (e) {
+        console.error("Resend error:", e);
+      }
     }
   }
 
   return json({ ok: true, id: orderId || null });
+}
+
+async function sendNotifyEmail({
+  apiKey,
+  to,
+  orderId,
+  name,
+  email,
+  phone,
+  address,
+  notes,
+  productName,
+  qty,
+  unit,
+  subtotal,
+}) {
+  const subject = `Cedar & Clay pre-order — ${productName} × ${qty}`;
+  const html = `
+    <p><strong>Pre-order saved</strong> (payment offline)</p>
+    <p><strong>Order ID:</strong> ${escapeHtml(orderId || "—")}</p>
+    <p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>
+    <p><strong>Phone:</strong> ${escapeHtml(phone || "—")}</p>
+    <p><strong>Ship to:</strong><br>${escapeHtml(address).replace(/\n/g, "<br>")}</p>
+    <hr>
+    <p><strong>Product:</strong> ${escapeHtml(productName)}</p>
+    <p><strong>Quantity:</strong> ${qty}</p>
+    <p><strong>Est. unit (online):</strong> $${unit}</p>
+    <p><strong>Est. product subtotal:</strong> $${subtotal}</p>
+    <p style="color:#666;font-size:13px;">Plus packing (~$2) and shipping to confirm. View all orders: https://journal.oristrade.com/admin/cedarclay-orders</p>
+    <p><strong>Notes:</strong></p>
+    <p>${escapeHtml(notes || "—").replace(/\n/g, "<br>")}</p>
+  `;
+
+  const mailRes = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: FROM,
+      to: [to],
+      reply_to: email,
+      subject,
+      html,
+    }),
+  });
+
+  if (!mailRes.ok) {
+    console.error("Resend error:", mailRes.status, await mailRes.text());
+  }
 }
 
 function escapeHtml(text) {

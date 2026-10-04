@@ -34,7 +34,13 @@ export function PreOrderForm({ initialProductId }: { initialProductId?: string }
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      const result = await res.json().catch(() => ({}));
+
+      let result: { error?: string; ok?: boolean } = {};
+      try {
+        result = await res.json();
+      } catch {
+        // Empty/non-JSON body — still treat HTTP success as saved
+      }
 
       if (!res.ok) {
         setErrorMessage(
@@ -50,7 +56,9 @@ export function PreOrderForm({ initialProductId }: { initialProductId?: string }
       form.reset();
       setProductId(defaultId);
     } catch {
-      setErrorMessage("Could not send. Check your connection and try again.");
+      setErrorMessage(
+        "Your pre-order may still have been received — check your email or My Orders. If nothing appears, try again or contact us."
+      );
       setStatus("error");
     }
   }
