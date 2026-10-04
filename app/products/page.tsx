@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Farmer's Market Products — Home, Bath, Wellness & Garden",
   description:
-    "Shop Cedar & Clay handmade products at our county farmer's market — laundry soap, elderberry syrup, bath soaks, tallow lotion, farm eggs, and garden plants from Redgranite, WI.",
+    "Shop Cedar & Clay handmade products at our county farmer's market — laundry soap, bath soaks, salves, elderberry kits, farm eggs, and garden plants from Redgranite, WI.",
   alternates: { canonical: `${SITE.domain}/products` },
   openGraph: {
     title: `Products | ${SITE.name}`,
@@ -38,7 +38,7 @@ export default function ProductsPage() {
       <BrandedPageHeader
         eyebrow="Farmer's market"
         title="Handmade products for home, body, and health"
-        description="Everything below is made in small batches on our acreage in Redgranite, Wisconsin. Typical booth prices reflect simple, homemade packaging — fair for a local farmer's market."
+        description="Everything below is made in small batches on our acreage in Redgranite, Wisconsin. Booth prices reflect simple homemade packaging — sizes may vary, and the listed price still applies."
       >
         <p className="mx-auto mt-6 max-w-2xl rounded-xl border border-sage-200 bg-sage-50/80 px-5 py-4 text-center text-sm text-sage-800">
           {SITE.marketNote}
@@ -111,29 +111,35 @@ export default function ProductsPage() {
 
       <section className="section-padding bg-sage-50/50">
         <div className="container-narrow">
-          <h2 className="font-display text-2xl text-bark sm:text-3xl">Online orders (when available)</h2>
+          <h2 className="font-display text-2xl text-bark sm:text-3xl">Pre-orders online</h2>
           <p className="mt-3 text-sm leading-relaxed text-cedar-700">
-            Booth prices stay lowest. Online covers packing time, card fees, and careful shipping
-            of homemade packaging.
+            Submit a pre-order on the Shop page. No payment is taken on this website — we contact
+            you to confirm stock, shipping, and how to pay.
           </p>
           <ul className="mt-6 space-y-2 text-sm text-cedar-700">
             <li>
-              <span className="font-semibold text-bark">Online upcharge:</span> about{" "}
+              <span className="font-semibold text-bark">Est. online price:</span> about{" "}
               {Math.round((ONLINE_FEES.upchargeMultiplier - 1) * 100)}% over booth (e.g. $7 laundry →
-              ~$8 online)
+              ~$8)
             </li>
             <li>
-              <span className="font-semibold text-bark">Packing fee:</span> ${ONLINE_FEES.packingFee}{" "}
-              per order
+              <span className="font-semibold text-bark">Packing:</span> about $
+              {ONLINE_FEES.packingFee} per order
             </li>
             <li>
-              <span className="font-semibold text-bark">Shipping:</span> $
-              {ONLINE_FEES.shipping.small.price} small · ${ONLINE_FEES.shipping.medium.price} medium ·
-              ${ONLINE_FEES.shipping.large.price} large · free over $
-              {ONLINE_FEES.shipping.freeOver}
+              <span className="font-semibold text-bark">Shipping:</span> about $
+              {ONLINE_FEES.shipping.small.price}–${ONLINE_FEES.shipping.large.price} (confirmed when
+              we reach out)
             </li>
+            <li className="text-cedar-600">{ONLINE_FEES.packagingNote}</li>
             <li className="text-cedar-600">{ONLINE_FEES.note}</li>
           </ul>
+          <Link
+            href="/shop"
+            className="mt-8 inline-flex rounded-full bg-cedar-600 px-6 py-3 text-sm font-semibold text-white hover:bg-cedar-700"
+          >
+            Submit a pre-order
+          </Link>
         </div>
       </section>
 
@@ -146,16 +152,16 @@ export default function ProductsPage() {
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
-              href="/contact"
+              href="/shop"
               className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-cedar-800"
             >
-              Contact us
+              Pre-order
             </Link>
             <Link
-              href="/studio"
+              href="/contact"
               className="rounded-full border border-cedar-400 px-6 py-3 text-sm font-semibold"
             >
-              Studio & classes
+              Contact us
             </Link>
           </div>
         </div>

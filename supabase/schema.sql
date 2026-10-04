@@ -1,0 +1,10 @@
+-- DEPRECATED for new installs: the canonical schema lives in the OrisTrade project:
+--   OrisTrade-Journal/supabase/CEDARCLAY_PREORDERS.sql
+--
+-- Run that SQL in the **OrisTrade** Supabase project (same DB as journal.oristrade.com).
+-- Admin UI: https://journal.oristrade.com/admin/cedarclay-orders
+-- Customer My Orders: https://cedarclaylife.com/orders
+--
+-- Also add Auth redirect URLs:
+--   https://cedarclaylife.com/auth/callback
+--   http://localhost:3000/auth/callback

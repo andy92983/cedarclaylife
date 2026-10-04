@@ -6,14 +6,13 @@ import { STUDIO_OFFERINGS } from "@/lib/content";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Creative Studio & Classes — Art, 3D Printing, Crafts",
+  title: "Art Studio — Coming Soon",
   description:
-    "Cedar & Clay studio offers art classes, graphic design, 3D printing, sewing, and messy creative sessions for kids and families. Faith-based maker space in Redgranite, WI.",
+    "Cedar & Clay art studio is coming soon in Redgranite, WI. Open creative studio and 3D printing are not available yet. Join the interest list.",
   alternates: { canonical: `${SITE.domain}/studio` },
   openGraph: {
-    title: `Studio & Classes | ${SITE.name}`,
-    description:
-      "Paint, glitter, clay, 3D printing, and more — a creative space where families make messes without fear. Classes for every skill level.",
+    title: `Studio | ${SITE.name}`,
+    description: "Art studio coming soon. Join the interest list — open studio and 3D printing not available yet.",
     url: `${SITE.domain}/studio`,
   },
 };
@@ -28,9 +27,9 @@ export default function StudioPage() {
         ]}
       />
       <BrandedPageHeader
-        eyebrow="Learn · Create · Grow"
-        title="A studio space for makers, families, and curious beginners"
-        description="Graphic design, art, 3D printing, sewing, and crafts — with classes built around your level. Finally, a place where glitter is someone else's problem."
+        eyebrow="Coming soon"
+        title="An art studio is on the way"
+        description="We're preparing a creative space for art and learning. Open creative studio hours and 3D printing are not available yet — join the list and we'll let you know when classes begin."
       />
 
       <section className="section-padding">
@@ -53,36 +52,18 @@ export default function StudioPage() {
       </section>
 
       <section className="section-padding bg-sage-50/80">
-        <div className="container-narrow">
-          <h2 className="heading-section text-center text-bark">
-            Teaching grounded in truth, tailored to you
-          </h2>
-          <p className="text-lead mx-auto mt-4 max-w-2xl text-center">
-            We don&apos;t believe creativity and faith are separate rooms. Whether you&apos;re
-            learning to design a logo, print a tool, or help your child finger-paint for the first
-            time — we meet you where you are and grow from there.
+        <div className="container-narrow text-center">
+          <h2 className="heading-section text-bark">Get on the list</h2>
+          <p className="text-lead mx-auto mt-4 max-w-2xl">
+            Tell us you&apos;re interested in art classes. We&apos;ll reach out when the studio
+            opens — no 3D printing or open studio drop-ins until we announce them.
           </p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {[
-              { step: "1", title: "Tell us your level", desc: "Beginner, returning, or ready to go deeper" },
-              { step: "2", title: "Pick your path", desc: "Art, digital design, 3D printing, or crafts" },
-              { step: "3", title: "Create & connect", desc: "Make something real in community" },
-            ].map((item) => (
-              <div key={item.step} className="text-center">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-cedar-600 font-display text-lg text-white">
-                  {item.step}
-                </span>
-                <h3 className="mt-3 font-display text-xl text-bark">{item.title}</h3>
-                <p className="mt-2 text-sm text-cedar-600">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
+          <div className="mt-10">
             <Link
               href="/contact"
               className="inline-flex rounded-full bg-clay-500 px-8 py-3 text-sm font-semibold text-white hover:bg-clay-600"
             >
-              Join the class list
+              Join the interest list
             </Link>
           </div>
         </div>

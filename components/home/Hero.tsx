@@ -17,14 +17,14 @@ export function Hero() {
             <span className="text-sage-600">conduct</span>
           </h1>
           <p className="text-lead mx-auto mt-6 max-w-2xl animate-fade-up">
-            Handmade products for home, body, and health. A creative studio where families make
-            messes without fear. {SITE.acres} acres to walk, hike, and breathe. All rooted in
-            biblical wisdom — for believers and seekers alike.
+            Handmade products for home, body, and health. An art studio coming soon.{" "}
+            {SITE.acres} acres for guided walks when the land is clear. All rooted in biblical
+            wisdom — for believers and seekers alike.
           </p>
           <VerseBanner className="mx-auto mt-8 max-w-2xl" />
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button href="/products" size="lg">
-              Shop Market Products
+            <Button href="/shop" size="lg">
+              Pre-Order
             </Button>
             <Button href="/land" variant="outline" size="lg">
               Walk the Land

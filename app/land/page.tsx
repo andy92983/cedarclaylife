@@ -6,13 +6,13 @@ import { TRAIL_FEATURES } from "@/lib/content";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "21 Acres — Walking Paths & Hiking Trails",
+  title: "21 Acres — Guided Land Walks",
   description:
-    "Explore 21 acres of walking paths and hiking trails at Cedar & Clay in Redgranite, Wisconsin.",
+    "Walk 21 acres at Cedar & Clay in Redgranite, Wisconsin. Guided walks for now — no dedicated pathways yet. Closed in deep winter snow.",
   alternates: { canonical: `${SITE.domain}/land` },
   openGraph: {
     title: `Land & Trails | ${SITE.name}`,
-    description: `${SITE.acres} acres of trails for walking, hiking, prayer walks, and group outings — movement as part of whole-person wellness.`,
+    description: `${SITE.acres} acres for guided walks. No dedicated pathways yet. Closed when deep uncleared snow makes walking unsafe.`,
     url: `${SITE.domain}/land`,
   },
 };
@@ -30,8 +30,8 @@ export default function LandPage() {
         <BrandedPageHeader
           className="border-b-0 bg-gradient-to-br from-sage-100 via-cedar-50 to-cream"
           eyebrow={`${SITE.acres} acres`}
-          title="Walk, hike, and breathe"
-          description="Movement is not an afterthought here. Our land invites slow conversation, prayer walks, family outings, and the kind of quiet that helps body and spirit catch up to each other."
+          title="Walk the land with us"
+          description="There are no dedicated pathways yet. We can walk along with you and guide you across the acreage. Closed in deep winter when heavy, uncleared snow makes walking impossible."
         />
         <div
           className="pointer-events-none absolute bottom-0 left-1/2 h-48 w-[120%] -translate-x-1/2 rounded-[100%] bg-sage-200/30 blur-2xl"
@@ -53,12 +53,11 @@ export default function LandPage() {
       <section className="section-padding bg-cedar-800 text-white">
         <div className="container-narrow grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <h2 className="font-display text-4xl">Creation meets creation</h2>
+            <h2 className="font-display text-4xl">Come walk when the land is clear</h2>
             <p className="mt-4 leading-relaxed text-cedar-200">
-              Many visits combine studio time with trail time — make something with your hands,
-              then let the land restore what screens and schedules took. That rhythm — create boldly,
-              consume well, conduct yourself with intention — is the heartbeat of{" "}
-              {SITE.name}.
+              Contact us to schedule a guided walk. Wear sturdy shoes, expect natural ground, and
+              plan ahead for weather. When snow piles up and paths aren&apos;t cleared, we pause
+              visits until it&apos;s safe again.
             </p>
           </div>
           <div className="rounded-3xl bg-cedar-700/50 p-8 text-center">
@@ -68,7 +67,7 @@ export default function LandPage() {
               href="/contact"
               className="mt-6 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-cedar-800 hover:bg-cream"
             >
-              Schedule a visit
+              Schedule a guided walk
             </Link>
           </div>
         </div>

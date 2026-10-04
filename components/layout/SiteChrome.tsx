@@ -166,8 +166,8 @@ export function Footer() {
               <Logo variant="footer" />
             </div>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-cedar-200">
-              {SITE.name} — handmade products, creative studio classes, and {SITE.acres} acres
-              of trails in Redgranite, Wisconsin. Whole-person wellness rooted in biblical wisdom.
+              {SITE.name} — handmade products, art studio coming soon, and {SITE.acres} acres
+              for guided walks in Redgranite, Wisconsin. Whole-person wellness rooted in biblical wisdom.
             </p>
             <p className="mt-4 font-display text-lg italic text-clay-200">
               &ldquo;{SITE.verse.text}&rdquo;

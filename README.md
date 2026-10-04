@@ -52,7 +52,7 @@ Push this folder as its own repository and connect it to a new Cloudflare Pages 
 
 ## Product catalog
 
-Market products are defined in `lib/products.ts` (sourced from product label & pricing sheets). Prices are intentionally blank (`—`) until set at the farmer's market booth. Update prices there when ready.
+Market products and booth prices are defined in `lib/products.ts`. Packaging sizes may vary; listed prices still apply.
 
 ## Customize
 
@@ -90,6 +90,39 @@ The contact page posts to `/api/contact` (Cloudflare Pages Function). In your Pa
 | `CONTACT_TO` | Optional — defaults to `hello@oristrade.com` |
 
 Emails send **from** `hello@oristrade.com` **to** `hello@oristrade.com`, with the visitor&apos;s address as reply-to. The form does not run during local static `npm run dev` unless you use Wrangler; it works on the deployed Cloudflare Pages site.
+
+## Pre-orders (OrisTrade Supabase + offline payment)
+
+Pre-orders are stored in the **existing OrisTrade Supabase** project (not a separate Cedarclaylife DB).
+
+| Surface | Who | Purpose |
+|---------|-----|---------|
+| cedarclaylife.com `/shop` | Anyone | Submit a pre-order |
+| cedarclaylife.com `/orders` | Customer | Magic-link sign-in → **their** pre-orders |
+| **journal.oristrade.com `/admin/cedarclay-orders`** | OrisTrade admin | **All** pre-orders + status updates |
+
+### Setup
+
+1. In **OrisTrade** Supabase → SQL Editor, run:
+   `OrisTrade-Journal/supabase/CEDARCLAY_PREORDERS.sql`
+2. Supabase → **Authentication → URL configuration** → add redirect:
+   - `https://cedarclaylife.com/auth/callback`
+   - `http://localhost:3000/auth/callback` (local)
+3. In **Cloudflare Pages** (Cedarclaylife project), set the **same** OrisTrade Supabase keys:
+
+| Variable | Where used |
+|----------|------------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Build + browser (My Orders) |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Build + browser |
+| `SUPABASE_URL` | Pages Function `/api/preorder` |
+| `SUPABASE_SERVICE_ROLE_KEY` | Pages Function (never expose to browser) |
+| `RESEND_API_KEY` | Optional email notify |
+| `CONTACT_TO` | Optional inbox override |
+
+4. Redeploy Cedarclaylife so `NEXT_PUBLIC_*` values are in the static build.
+5. Admin: sign into **journal.oristrade.com** with your OrisTrade admin account → **Admin → Cedar & Clay orders**.
+
+Keep `functions/api/preorder.js` catalog in sync with `lib/products.ts`.
 
 ## Block AI training crawlers
 

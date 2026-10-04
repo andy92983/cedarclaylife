@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description:
-    `Cedar & Clay offers natural home and bath products, elderberry wellness goods, creative studio classes, and 21 acres of trails in Redgranite, Wisconsin. ${SITE.motto}`,
+    `Cedar & Clay offers natural home and bath products, an art studio coming soon, and guided walks on 21 acres in Redgranite, Wisconsin. ${SITE.motto}`,
   keywords: [...SEO_KEYWORDS],
   authors: [{ name: SITE.name }],
   creator: SITE.name,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${SITE.name} — Create. Consume. Conduct.`,
     description:
-      "Handmade wellness products, creative studio classes, and nature trails on 21 acres — rooted in biblical wisdom for mind, body, and spirit.",
+      "Handmade wellness products, art studio coming soon, and guided walks on 21 acres — rooted in biblical wisdom for mind, body, and spirit.",
     url: SITE.domain,
     siteName: SITE.name,
     locale: "en_US",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE.name} — Faith-Based Wellness & Creative Studio`,
     description:
-      "Natural products for home, body & health. Art studio, maker classes, and 21 acres of trails.",
+      "Natural products for home, body & health. Art studio coming soon, and guided walks on 21 acres.",
     images: ["/brand/logo.png"],
   },
   icons: {

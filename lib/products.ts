@@ -10,7 +10,7 @@ export type MarketProduct = {
   caution?: string;
   /** Typical farmer's market booth price (USD) */
   price: number;
-  /** Size or unit shown beside price — helps set expectations for simple packaging */
+  /** Approximate size — packaging may vary; price still applies */
   priceUnit?: string;
   status: "available" | "seasonal";
   /** If false, product is booth / local pickup only (not shipped) */
@@ -30,7 +30,7 @@ export const PRODUCT_CATEGORIES: {
   {
     id: "wellness",
     title: "Wellness",
-    description: "Small-batch elderberry and seasonal staples made with simple ingredients.",
+    description: "Small-batch DIY kits and seasonal staples made with simple ingredients.",
   },
   {
     id: "bath",
@@ -46,7 +46,7 @@ export const PRODUCT_CATEGORIES: {
 
 /**
  * Booth prices for a county farmer's market — sized for simple homemade packaging
- * (bags, jars, basic labels). Intentionally below boutique / Etsy retail.
+ * (bags, jars, basic labels). Packaging sizes may vary; listed prices still apply.
  */
 export const MARKET_PRODUCTS: MarketProduct[] = [
   // Home
@@ -68,7 +68,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     category: "home",
     description: "Aromatic vanilla-infused sugar for coffee, baking, and gifting.",
     price: 6,
-    priceUnit: "· 8 oz bag",
+    priceUnit: "· ~8 oz bag",
     status: "available",
     shipsOnline: true,
   },
@@ -83,21 +83,6 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     shipsOnline: false,
   },
   // Wellness
-  {
-    id: "elderberry-syrup",
-    name: "Elderberry Syrup",
-    category: "wellness",
-    description: "Ready-to-use elderberry syrup — refrigerate and enjoy within 2 months of opening.",
-    ingredients: "Elderberries, rosehip, cinnamon, anise star, cloves, honey",
-    directions:
-      "Recommended serving: 1 tbsp for adults, 1 tsp for children. Keep refrigerated.",
-    caution:
-      "Do not consume raw elderberries. Honey is not safe for children under one year old. Product produced in a private residence exempt from state licensing and inspection.",
-    price: 15,
-    priceUnit: "· 8 oz bottle",
-    status: "available",
-    shipsOnline: true,
-  },
   {
     id: "elderberry-syrup-kit",
     name: "Elderberry Syrup Kit",
@@ -124,7 +109,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     directions:
       "Fill tub with warm water. Use ½ cup for children over 60 lbs, 1 cup for adults. Soak 20–40 minutes. Rinse with fresh water afterward. Hydrate before and after.",
     price: 8,
-    priceUnit: "· 12 oz bag",
+    priceUnit: "· ~12 oz bag",
     status: "available",
     shipsOnline: true,
   },
@@ -137,7 +122,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     directions:
       "Fill tub with warm water. Use ½ cup for children over 60 lbs, 1 cup for adults. Soak 20–40 minutes. Rinse with fresh water afterward. Hydrate before and after.",
     price: 8,
-    priceUnit: "· 12 oz bag",
+    priceUnit: "· ~12 oz bag",
     status: "available",
     shipsOnline: true,
   },
@@ -150,7 +135,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     directions:
       "Fill tub with warm water. Use ½ cup for children over 60 lbs, 1 cup for adults. Soak 20–40 minutes. Rinse with fresh water afterward. Hydrate before and after.",
     price: 7,
-    priceUnit: "· 12 oz bag",
+    priceUnit: "· ~12 oz bag",
     status: "available",
     shipsOnline: true,
   },
@@ -160,7 +145,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     category: "bath",
     description: "Drawing clay mask for tired feet — part of a natural care routine.",
     price: 6,
-    priceUnit: "· 4 oz jar",
+    priceUnit: "· ~4 oz jar",
     status: "available",
     shipsOnline: true,
   },
@@ -170,7 +155,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     category: "bath",
     description: "Gentle drawing mask for underarms — part of a natural care routine.",
     price: 6,
-    priceUnit: "· 4 oz jar",
+    priceUnit: "· ~4 oz jar",
     status: "available",
     shipsOnline: true,
   },
@@ -178,9 +163,9 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     id: "foot-soak",
     name: "Foot Soak",
     category: "bath",
-    description: "Soothing soak blend for tired feet after a long day or trail walk.",
+    description: "Soothing soak blend for tired feet after a long day or land walk.",
     price: 6,
-    priceUnit: "· 8 oz bag",
+    priceUnit: "· ~8 oz bag",
     status: "available",
     shipsOnline: true,
   },
@@ -190,7 +175,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     category: "bath",
     description: "Nourishing tallow-based lotion for dry skin — simple and effective.",
     price: 10,
-    priceUnit: "· 2 oz jar",
+    priceUnit: "· ~2 oz jar",
     status: "available",
     shipsOnline: true,
   },
@@ -200,7 +185,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     category: "bath",
     description: "Traditional drawing salve for occasional skin care — simple homemade jar.",
     price: 9,
-    priceUnit: "· 2 oz jar",
+    priceUnit: "· ~2 oz jar",
     status: "available",
     shipsOnline: true,
   },
@@ -210,7 +195,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     category: "bath",
     description: "Comfrey-infused salve for everyday skin comfort — simple homemade jar.",
     price: 9,
-    priceUnit: "· 2 oz jar",
+    priceUnit: "· ~2 oz jar",
     status: "available",
     shipsOnline: true,
   },
@@ -220,7 +205,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     category: "bath",
     description: "Invigorating peppermint sugar scrub for smooth, refreshed skin.",
     price: 8,
-    priceUnit: "· 8 oz jar",
+    priceUnit: "· ~8 oz jar",
     status: "available",
     shipsOnline: true,
   },
@@ -278,13 +263,11 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
 ];
 
 /**
- * Recommended online pricing (when you start taking web orders).
- * Booth stays cheaper; online covers packing time, card fees (~3%), and fragile homemade packaging.
+ * Estimated online pricing for pre-orders — booth stays cheaper;
+ * online covers packing time and shipping (payment collected offline).
  */
 export const ONLINE_FEES = {
-  /** Multiply booth price: 1.15 = +15% online upcharge */
   upchargeMultiplier: 1.15,
-  /** Flat packing fee per order (materials + time) */
   packingFee: 2,
   shipping: {
     small: { label: "Small (under ~1 lb)", price: 6 },
@@ -293,11 +276,21 @@ export const ONLINE_FEES = {
     freeOver: 55,
   },
   note:
-    "Eggs and garden plants are market or local pickup only — we do not ship them.",
+    "Eggs and garden plants are market or local pickup only — we do not ship them. Packaging sizes may vary; the listed price still applies.",
+  packagingNote:
+    "Packaging sizes may vary with homemade packing — the price shown still applies to that item.",
 } as const;
 
 export function productsByCategory(category: ProductCategory) {
   return MARKET_PRODUCTS.filter((p) => p.category === category);
+}
+
+export function shippableProducts() {
+  return MARKET_PRODUCTS.filter((p) => p.shipsOnline !== false);
+}
+
+export function getProductById(id: string) {
+  return MARKET_PRODUCTS.find((p) => p.id === id);
 }
 
 export function formatProductPrice(product: MarketProduct): string {
@@ -312,4 +305,8 @@ export function formatProductPrice(product: MarketProduct): string {
 /** Suggested online price from booth price (rounded to nearest dollar). */
 export function onlinePriceFromBooth(boothPrice: number): number {
   return Math.round(boothPrice * ONLINE_FEES.upchargeMultiplier);
+}
+
+export function formatOnlinePrice(boothPrice: number): string {
+  return `$${onlinePriceFromBooth(boothPrice)}`;
 }

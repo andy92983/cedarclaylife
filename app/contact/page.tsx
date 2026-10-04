@@ -28,7 +28,7 @@ export default function ContactPage() {
       <BrandedPageHeader
         eyebrow="We'd love to hear from you"
         title="Visit, learn, and grow with us"
-        description="Whether you're interested in products, studio classes, trail walks, or simply want to know when we open — reach out. We'll respond as soon as we can."
+        description="Whether you're interested in products, the coming art studio, a guided land walk, or online orders — reach out. We'll respond as soon as we can."
       />
 
       <section className="section-padding">
@@ -61,10 +61,10 @@ export default function ContactPage() {
             <div className="card-soft">
               <h3 className="font-display text-xl text-bark">What to ask about</h3>
               <ul className="mt-4 space-y-3 text-sm text-cedar-700">
-                <li>→ Farmer&apos;s market products — elderberry, bath soaks, laundry soap &amp; more</li>
-                <li>→ Studio classes — art, 3D printing, graphic design, crafts</li>
-                <li>→ Walking & hiking on {SITE.acres} acres</li>
-                <li>→ Group visits, family outings, and market day updates</li>
+                <li>→ Farmer&apos;s market &amp; online products — bath soaks, salves, laundry soap &amp; more</li>
+                <li>→ Art studio interest list (coming soon — no open studio or 3D printing yet)</li>
+                <li>→ Guided walks on {SITE.acres} acres (no dedicated pathways yet; closed in deep snow)</li>
+                <li>→ Market day updates and group visits</li>
               </ul>
             </div>
             <blockquote className="rounded-2xl border-l-4 border-clay-400 bg-clay-50/50 px-6 py-5">

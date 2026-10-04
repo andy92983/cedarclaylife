@@ -47,16 +47,16 @@ export function StudioHighlight() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <SectionIntro
-              eyebrow="For parents who say no to glitter at home"
-              title="A creative studio where mess is welcome"
-              description="Paint splatters. Glitter explosions. Clay under fingernails. We built a space for the projects you've been putting off — with supplies, guidance, and zero carpet casualties."
+              eyebrow="Coming soon"
+              title="An art studio is on the way"
+              description="We're preparing a creative space for art and learning. Open creative studio hours and 3D printing are not available yet — join the interest list to hear when we open."
               centered={false}
             />
             <ul className="mt-8 space-y-3 text-cedar-700">
               {[
-                "Art, crafts, graphic design, and 3D printing",
-                "Classes for every level — beginner to growing maker",
-                "Faith-aligned teaching that honors creativity as gift",
+                "Art studio coming soon",
+                "Open creative studio & 3D printing — not available yet",
+                "Faith-aligned creativity when classes begin",
               ].map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs text-sage-700">
@@ -70,19 +70,14 @@ export function StudioHighlight() {
               href="/studio"
               className="mt-8 inline-flex rounded-full bg-clay-500 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-clay-600"
             >
-              See studio offerings
+              Join the interest list
             </Link>
           </div>
           <div className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-gradient-to-br from-clay-200 via-cedar-100 to-sage-100 shadow-xl">
               <div className="flex h-full flex-col items-center justify-center p-8 text-center">
-                <span className="text-6xl" aria-hidden>
-                  🎨
-                </span>
-                <p className="mt-4 font-display text-2xl text-cedar-800">Create without limits</p>
-                <p className="mt-2 text-sm text-cedar-600">
-                  Sewing & seasonal crafts coming soon
-                </p>
+                <p className="font-display text-2xl text-cedar-800">Art studio</p>
+                <p className="mt-2 text-sm text-cedar-600">Coming soon</p>
               </div>
             </div>
             <div className="absolute -bottom-4 -left-4 rounded-2xl bg-cream px-5 py-4 shadow-lg">
@@ -108,7 +103,7 @@ export function CTABanner() {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-cedar-200">
             Whether you love God deeply or are searching for something deeper — we invite you to
-            visit, take a class, walk the trails, and see what wholeness can look like.
+            visit, shop handmade goods, walk the land with us, and see what wholeness can look like.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
@@ -138,13 +133,13 @@ export function MarketHighlight() {
           <SectionIntro
             eyebrow="Farmer's market"
             title="Handmade goods from our acreage in Redgranite"
-            description="Elderberry syrup, laundry soap, bath soaks, vanilla sugar, farm eggs, garden plants, and more — sold at our county farmer's market with fair, homemade pricing."
+            description="Laundry soap, bath soaks, salves, vanilla sugar, elderberry DIY kits, farm eggs, garden plants, and more — at the farmer's market or online. Packaging sizes may vary."
             centered={false}
           />
           <div className="card-soft">
             <ul className="space-y-2 text-sm text-cedar-700">
               {[
-                "Elderberry syrup & DIY kits",
+                "Elderberry syrup DIY kits",
                 "Pink Himalayan detox bath & clay soaks",
                 "Laundry soap & vanilla sugar",
                 "Tallow lotion, drawing salve & comfrey salve",
@@ -157,12 +152,20 @@ export function MarketHighlight() {
                 </li>
               ))}
             </ul>
-            <Link
-              href="/products"
-              className="mt-6 inline-flex rounded-full bg-cedar-600 px-6 py-3 text-sm font-semibold text-white hover:bg-cedar-700"
-            >
-              View full product list
-            </Link>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/shop"
+                className="inline-flex rounded-full bg-cedar-600 px-6 py-3 text-sm font-semibold text-white hover:bg-cedar-700"
+              >
+                Pre-order
+              </Link>
+              <Link
+                href="/products"
+                className="inline-flex rounded-full border border-cedar-300 px-6 py-3 text-sm font-semibold text-cedar-800"
+              >
+                Booth price list
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ export const PILLARS = [
     title: "For Your Body",
     subtitle: "Honor the vessel you've been given",
     description:
-      "Bath soaks, sugar scrubs, tallow lotion, and detox blends — small-batch body care made with simple, intentional ingredients.",
+      "Bath soaks, sugar scrubs, tallow lotion, salves, and detox blends — small-batch body care made with simple, intentional ingredients.",
     icon: "body",
     href: "/products#body",
   },
@@ -24,16 +24,16 @@ export const PILLARS = [
     title: "For Your Health",
     subtitle: "Whole-person wellness rooted in truth",
     description:
-      "Elderberry syrup and DIY kits, plus seasonal wellness staples — supporting the whole person: mind, body, and spirit.",
+      "Elderberry syrup DIY kits and seasonal wellness staples — supporting the whole person: mind, body, and spirit.",
     icon: "health",
     href: "/products#health",
   },
   {
     id: "create",
     title: "Create & Learn",
-    subtitle: "Grow at your own pace",
+    subtitle: "Art studio coming soon",
     description:
-      "A studio for art, graphic design, 3D printing, sewing, and crafts — with classes tailored to beginners, families, and curious makers.",
+      "An art studio is on the way — join the interest list now. Open creative studio hours and 3D printing are not available yet.",
     icon: "create",
     href: "/studio",
   },
@@ -42,7 +42,7 @@ export const PILLARS = [
     title: "Land & Movement",
     subtitle: `${SITE.acres} acres to breathe`,
     description:
-      "Walking paths and hiking trails where conversation slows, screens fade, and your body remembers what it was made for.",
+      "Walk our acreage with a guide for now — no dedicated pathways yet. Closed in deep winter when uncleared snow makes walking unsafe.",
     icon: "land",
     href: "/land",
   },
@@ -61,47 +61,50 @@ export const PRODUCTS = [] as const;
 
 export const STUDIO_OFFERINGS = [
   {
-    title: "Open Creative Studio",
+    title: "Art Studio",
     description:
-      "Paint, glitter, clay, and mess — without ruining your dining room table. Parents tell us this is the space they've been searching for.",
-    highlights: ["Kid-friendly art sessions", "All supplies included", "No cleanup at home"],
+      "A dedicated art studio is coming soon — paint, drawing, and creative sessions for families and beginners. Join the list and we'll notify you when we open.",
+    highlights: ["Coming soon", "Join the interest list", "Faith-aligned creative space"],
   },
   {
     title: "Graphic Design & Digital Art",
     description:
-      "Learn layout, branding basics, and digital creation at your level — whether you're starting from zero or refining a skill.",
-    highlights: ["Beginner to intermediate", "Project-based learning", "Faith-aligned creative work"],
+      "Planned for the future — layout, branding basics, and digital creation at your level.",
+    highlights: ["Coming later", "Beginner-friendly", "Project-based learning"],
+  },
+  {
+    title: "Open Creative Studio",
+    description:
+      "Not open yet. When we launch, this will be a mess-welcome space for paint, glitter, and clay — without ruining your dining room table.",
+    highlights: ["Not available yet", "Planned for the future", "Supplies to be included"],
   },
   {
     title: "3D Printing & Maker Lab",
     description:
-      "Design, slice, and print — from practical household items to creative prototypes. Hands-on instruction with real tools.",
-    highlights: ["Intro workshops", "Ongoing maker hours", "Small group sizes"],
-  },
-  {
-    title: "Sewing, Crafts & Seasonal Workshops",
-    description:
-      "Stitch by stitch, season by season — sewing fundamentals, holiday crafts, and skill-building classes as demand grows.",
-    highlights: ["Coming soon", "All ages welcome", "Learn at your pace"],
+      "Not available yet. 3D printing and maker hours are not offered at this time.",
+    highlights: ["Not available yet", "Watch for updates"],
   },
 ] as const;
 
 export const TRAIL_FEATURES = [
   {
-    title: "Walking Paths",
-    description: "Gentle loops for conversation, prayer walks, and unhurried movement through meadow and tree line.",
+    title: "Guided acreage walks",
+    description: `We can walk with you across our ${SITE.acres} acres and show you the land. There are no dedicated pathways yet — we guide you along for now.`,
   },
   {
-    title: "Hiking Trails",
-    description: `${SITE.acres} acres of varied terrain — enough room to stretch your legs and quiet your mind without leaving the property.`,
+    title: "No paved or marked trails yet",
+    description:
+      "Expect natural ground and informal routes. Wear sturdy shoes and plan for uneven terrain.",
   },
   {
-    title: "Group & Family Outings",
-    description: "Guided walks for families, small groups, and classes that want movement woven into the experience.",
+    title: "Group & family visits",
+    description:
+      "Families and small groups are welcome by arrangement — contact us to schedule a guided walk.",
   },
   {
-    title: "Seasonal Gatherings",
-    description: "Outdoor events that combine creation, fellowship, and time on the land — watch for announcements.",
+    title: "Winter closure",
+    description:
+      "Deep winter walks are not available when heavy, uncleared snow makes the land unsafe or impossible to walk.",
   },
 ] as const;
 
@@ -112,29 +115,23 @@ export const FAQ = [
       "We are unapologetically rooted in biblical teaching, and everyone is welcome. Whether you love God deeply or are simply curious about faith-aligned wellness and creativity, you'll find a warm, non-judgmental space here.",
   },
   {
-    question: "What makes your creative studio different?",
+    question: "Is the art studio open?",
     answer:
-      "We offer the messy, joyful creative work many parents won't do at home — paint, glitter, clay, and more — in a dedicated space with all supplies provided. No scrubbing glitter out of carpet.",
+      "Not yet — the art studio is coming soon. Open creative studio hours and 3D printing are not available. Contact us to join the interest list.",
   },
   {
-    question: "Do you offer classes for beginners?",
-    answer:
-      "Yes. Every class and studio session is designed so you can grow at your level — from first-time makers to experienced crafters looking for community.",
-  },
-  {
-    question: "Can we walk or hike on the property?",
-    answer:
-      `Yes. Our ${SITE.acres}-acre property includes walking paths and hiking trails. Contact us for hours, group visits, and upcoming guided outings.`,
+    question: "Can we walk on the property?",
+    answer: `Yes, by arrangement. Our ${SITE.acres} acres are open for guided walks — there are no dedicated pathways yet, so we walk with you and show the way. We close walks in deep winter when uncleared snow makes walking unsafe.`,
   },
   {
     question: "Where can I buy your products?",
     answer:
-      "Find us at our county farmer's market in Redgranite, Wisconsin. Our website lists everything we make with typical booth prices. Contact us for the next market date.",
+      "At our county farmer's market in Redgranite, Wisconsin, or by submitting a pre-order on the Shop page. We'll contact you to confirm and arrange payment offline. Booth prices are on the Products page; online estimates include a small upcharge plus shipping. Packaging sizes may vary.",
   },
   {
     question: "Are your products natural and handmade?",
     answer:
-      "We prioritize simple ingredients, small-batch production, and intentional craftsmanship for home, body, and wellness products — with transparency about what goes into everything we make.",
+      "We prioritize simple ingredients, small-batch production, and intentional craftsmanship for home, body, and wellness products — with transparency about what goes into everything we make. Packaging is homemade and sizes may vary.",
   },
 ] as const;
 
@@ -142,11 +139,11 @@ export const TESTIMONIALS_PLACEHOLDER = [
   {
     quote:
       "Finally — a place where my kids can get gloriously messy and I don't have to panic about the kitchen floor.",
-    author: "Parent & studio visitor",
+    author: "Parent & future studio guest",
   },
   {
     quote:
-      "I came for a walking trail and stayed for the community. This feels like wholeness, not another wellness trend.",
-    author: "Trail guest",
+      "Walking the acreage together felt peaceful and real — not a polished park trail, just land and conversation.",
+    author: "Land guest",
   },
 ] as const;

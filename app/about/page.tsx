@@ -78,10 +78,9 @@ export default function AboutPage() {
               <h2 className="heading-section text-bark">What we&apos;re building</h2>
               <ul className="mt-4 space-y-3">
                 {[
-                  "Handmade products for home, bath, and wellness — at our county farmer's market",
-                  "A creative studio for art, design, 3D printing, sewing, and crafts",
-                  "Classes that meet people at their level — including messy kid-friendly sessions",
-                  `${SITE.acres} acres of walking paths and hiking trails`,
+                  "Handmade products for home, bath, and wellness — market booth and pre-orders",
+                  "An art studio coming soon (open studio and 3D printing not available yet)",
+                  `${SITE.acres} acres for guided walks — no dedicated pathways yet; closed in deep snow`,
                   "A community where wellness is whole-person, not trendy",
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
@@ -98,8 +97,8 @@ export default function AboutPage() {
           <div className="container-narrow text-center">
             <h2 className="heading-section text-bark">Come see for yourself</h2>
             <p className="text-lead mx-auto mt-4 max-w-xl">
-              We&apos;re opening our doors soon. Reach out to visit, join a class list, or walk the
-              land.
+              Reach out to visit, join the art studio interest list, schedule a guided land walk, or
+              shop handmade goods.
             </p>
             <Link
               href="/contact"

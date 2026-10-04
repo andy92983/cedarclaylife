@@ -24,14 +24,16 @@ export const SITE = {
     youtube: "",
   },
   marketNote:
-    "Find us at our county farmer's market. Booth prices below reflect simple homemade packaging — online orders (when available) add a small upcharge plus shipping.",
+    "Find us at our county farmer's market or submit a pre-order online. Booth prices reflect simple homemade packaging — sizes may vary, and the listed price still applies. We'll contact you to arrange payment and shipping outside this website.",
 } as const;
 
 export const NAV = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
-  { href: "/studio", label: "Studio & Classes" },
-  { href: "/land", label: "Land & Trails" },
+  { href: "/shop", label: "Pre-Order" },
+  { href: "/orders", label: "My Orders" },
+  { href: "/studio", label: "Studio" },
+  { href: "/land", label: "Land" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -41,14 +43,14 @@ export const SEO_KEYWORDS = [
   "Cedar & Clay Redgranite",
   "faith-based wellness Wisconsin",
   "farmer's market handmade products",
-  "elderberry syrup Wisconsin",
+  "elderberry syrup kit Wisconsin",
   "natural laundry soap",
   "handmade bath soak",
   "holistic health Christian",
   "natural home products",
   "handmade body care",
-  "creative studio classes",
-  "nature walks hiking retreat",
+  "art studio coming soon",
+  "guided land walks Redgranite",
   "biblical wellness",
   "mind body spirit health",
   "Redgranite WI farmer market",
