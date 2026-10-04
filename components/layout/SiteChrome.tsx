@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { formatAddress, NAV, SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -83,32 +87,72 @@ export function Header() {
 }
 
 function MobileNav() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    function handlePointerDown(event: PointerEvent) {
+      if (rootRef.current && !rootRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
   return (
-    <details className="relative md:hidden">
-      <summary className="cursor-pointer list-none rounded-lg border border-cedar-200 px-3 py-2 text-sm font-medium text-cedar-700">
-        Menu
-      </summary>
-      <nav
-        className="absolute right-0 top-full mt-2 min-w-[200px] rounded-xl border border-cedar-200 bg-cream p-2 shadow-lg"
-        aria-label="Mobile"
+    <div ref={rootRef} className="relative md:hidden">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls="mobile-nav"
+        onClick={() => setOpen((value) => !value)}
+        className="rounded-lg border border-cedar-200 px-3 py-2 text-sm font-medium text-cedar-700"
       >
-        {NAV.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="block rounded-lg px-3 py-2 text-sm text-cedar-700 hover:bg-cedar-50"
-          >
-            {item.label}
-          </Link>
-        ))}
-        <Link
-          href="/contact"
-          className="mt-1 block rounded-lg bg-cedar-600 px-3 py-2 text-center text-sm font-semibold text-white"
+        Menu
+      </button>
+      {open && (
+        <nav
+          id="mobile-nav"
+          className="absolute right-0 top-full z-50 mt-2 min-w-[200px] rounded-xl border border-cedar-200 bg-cream p-2 shadow-lg"
+          aria-label="Mobile"
         >
-          Visit Us
-        </Link>
-      </nav>
-    </details>
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="block rounded-lg px-3 py-2 text-sm text-cedar-700 hover:bg-cedar-50"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="mt-1 block rounded-lg bg-cedar-600 px-3 py-2 text-center text-sm font-semibold text-white"
+          >
+            Visit Us
+          </Link>
+        </nav>
+      )}
+    </div>
   );
 }
 

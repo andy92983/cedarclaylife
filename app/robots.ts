@@ -1,12 +1,19 @@
 import type { MetadataRoute } from "next";
+import { AI_TRAINING_BOTS } from "@/lib/ai-bots";
 import { SITE } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
+    rules: [
+      ...AI_TRAINING_BOTS.map((userAgent) => ({
+        userAgent,
+        disallow: "/" as const,
+      })),
+      {
+        userAgent: "*",
+        allow: "/",
+      },
+    ],
     sitemap: `${SITE.domain}/sitemap.xml`,
   };
 }

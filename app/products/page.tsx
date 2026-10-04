@@ -5,6 +5,7 @@ import { BreadcrumbSchema, ProductListSchema } from "@/components/seo/JsonLd";
 import {
   formatProductPrice,
   MARKET_PRODUCTS,
+  ONLINE_FEES,
   PRODUCT_CATEGORIES,
   productsByCategory,
 } from "@/lib/products";
@@ -14,7 +15,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Farmer's Market Products — Home, Bath, Wellness & Garden",
   description:
-    "Shop Cedar & Clay handmade products at our county farmer's market — laundry soap, elderberry syrup, bath soaks, tallow lotion, vanilla goods, farm eggs, and garden plants from Redgranite, WI.",
+    "Shop Cedar & Clay handmade products at our county farmer's market — laundry soap, elderberry syrup, bath soaks, tallow lotion, farm eggs, and garden plants from Redgranite, WI.",
   alternates: { canonical: `${SITE.domain}/products` },
   openGraph: {
     title: `Products | ${SITE.name}`,
@@ -104,8 +105,36 @@ export default function ProductsPage() {
           })}
         </div>
         <p className="container-wide mt-12 text-center text-xs text-cedar-500">
-          {MARKET_PRODUCTS.length} products · sourced from Cedar &amp; Clay product sheets
+          {MARKET_PRODUCTS.length} products · booth prices for simple homemade packaging
         </p>
+      </section>
+
+      <section className="section-padding bg-sage-50/50">
+        <div className="container-narrow">
+          <h2 className="font-display text-2xl text-bark sm:text-3xl">Online orders (when available)</h2>
+          <p className="mt-3 text-sm leading-relaxed text-cedar-700">
+            Booth prices stay lowest. Online covers packing time, card fees, and careful shipping
+            of homemade packaging.
+          </p>
+          <ul className="mt-6 space-y-2 text-sm text-cedar-700">
+            <li>
+              <span className="font-semibold text-bark">Online upcharge:</span> about{" "}
+              {Math.round((ONLINE_FEES.upchargeMultiplier - 1) * 100)}% over booth (e.g. $7 laundry →
+              ~$8 online)
+            </li>
+            <li>
+              <span className="font-semibold text-bark">Packing fee:</span> ${ONLINE_FEES.packingFee}{" "}
+              per order
+            </li>
+            <li>
+              <span className="font-semibold text-bark">Shipping:</span> $
+              {ONLINE_FEES.shipping.small.price} small · ${ONLINE_FEES.shipping.medium.price} medium ·
+              ${ONLINE_FEES.shipping.large.price} large · free over $
+              {ONLINE_FEES.shipping.freeOver}
+            </li>
+            <li className="text-cedar-600">{ONLINE_FEES.note}</li>
+          </ul>
+        </div>
       </section>
 
       <section className="section-padding bg-cedar-900 text-center text-white">

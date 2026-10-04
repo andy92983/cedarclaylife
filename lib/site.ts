@@ -24,7 +24,7 @@ export const SITE = {
     youtube: "",
   },
   marketNote:
-    "Find us at our county farmer's market. Typical booth prices are listed on our products page — small batches and simple packaging keep things honest for a local market.",
+    "Find us at our county farmer's market. Booth prices below reflect simple homemade packaging — online orders (when available) add a small upcharge plus shipping.",
 } as const;
 
 export const NAV = [

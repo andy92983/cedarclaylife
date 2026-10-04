@@ -90,3 +90,9 @@ The contact page posts to `/api/contact` (Cloudflare Pages Function). In your Pa
 | `CONTACT_TO` | Optional — defaults to `hello@oristrade.com` |
 
 Emails send **from** `hello@oristrade.com` **to** `hello@oristrade.com`, with the visitor&apos;s address as reply-to. The form does not run during local static `npm run dev` unless you use Wrangler; it works on the deployed Cloudflare Pages site.
+
+## Block AI training crawlers
+
+`app/robots.ts` disallows common AI training bots (GPTBot, Google-Extended, ClaudeBot, CCBot, etc.) — see `lib/ai-bots.ts`. This is a polite opt-out; some bots ignore `robots.txt`.
+
+**Stronger blocking (Cloudflare):** In the dashboard for **cedarclaylife.com** → **Security** → **Bots** (or **WAF**), enable rules that block **AI Scrapers and Crawlers** / known AI bot user-agents. On many plans this stops requests at the edge before they reach your site.

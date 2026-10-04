@@ -138,7 +138,7 @@ export function MarketHighlight() {
           <SectionIntro
             eyebrow="Farmer's market"
             title="Handmade goods from our acreage in Redgranite"
-            description="Elderberry syrup, laundry soap, bath soaks, vanilla goods, farm eggs, garden plants, and more — sold at our county farmer's market with fair, homemade pricing."
+            description="Elderberry syrup, laundry soap, bath soaks, vanilla sugar, farm eggs, garden plants, and more — sold at our county farmer's market with fair, homemade pricing."
             centered={false}
           />
           <div className="card-soft">
@@ -146,8 +146,9 @@ export function MarketHighlight() {
               {[
                 "Elderberry syrup & DIY kits",
                 "Pink Himalayan detox bath & clay soaks",
-                "Laundry soap & fire starters",
-                "Tallow lotion & peppermint sugar scrub",
+                "Laundry soap & vanilla sugar",
+                "Tallow lotion, drawing salve & comfrey salve",
+                "Peppermint sugar scrub",
                 "Seasonal garden plants",
               ].map((item) => (
                 <li key={item} className="flex gap-2">

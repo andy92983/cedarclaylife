@@ -8,11 +8,13 @@ export type MarketProduct = {
   ingredients?: string;
   directions?: string;
   caution?: string;
-  /** Typical farmer's market price (USD) */
+  /** Typical farmer's market booth price (USD) */
   price: number;
   /** Size or unit shown beside price — helps set expectations for simple packaging */
   priceUnit?: string;
   status: "available" | "seasonal";
+  /** If false, product is booth / local pickup only (not shipped) */
+  shipsOnline?: boolean;
 };
 
 export const PRODUCT_CATEGORIES: {
@@ -43,9 +45,8 @@ export const PRODUCT_CATEGORIES: {
 ];
 
 /**
- * Recommended booth prices for a county farmer's market in Wisconsin.
- * Sized for simple, homemade packaging (bags, jars, labels) — below boutique retail,
- * fair for small-batch ingredients and labor.
+ * Booth prices for a county farmer's market — sized for simple homemade packaging
+ * (bags, jars, basic labels). Intentionally below boutique / Etsy retail.
  */
 export const MARKET_PRODUCTS: MarketProduct[] = [
   // Home
@@ -56,36 +57,20 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     description: "Homemade powder detergent for everyday loads and extra-dirty items.",
     ingredients: "Washing soda, baking soda, borax, Oxi Clean, bar soap (shavings)",
     directions: "Use 1 tbsp per regular load. Use 2 tbsp for extra dirty items.",
-    price: 10,
+    price: 7,
     priceUnit: "· ~32 oz bag",
     status: "available",
-  },
-  {
-    id: "fire-starters",
-    name: "Fire Starters",
-    category: "home",
-    description: "Handmade starters to get your fire going quickly and naturally.",
-    price: 7,
-    priceUnit: "· 6-pack",
-    status: "available",
-  },
-  {
-    id: "vanilla",
-    name: "Vanilla",
-    category: "home",
-    description: "Pure vanilla for baking and everyday kitchen use.",
-    price: 12,
-    priceUnit: "· 2 oz bottle",
-    status: "available",
+    shipsOnline: true,
   },
   {
     id: "vanilla-sugar",
     name: "Vanilla Sugar",
     category: "home",
     description: "Aromatic vanilla-infused sugar for coffee, baking, and gifting.",
-    price: 7,
+    price: 6,
     priceUnit: "· 8 oz bag",
     status: "available",
+    shipsOnline: true,
   },
   {
     id: "eggs",
@@ -95,6 +80,7 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     price: 5,
     priceUnit: "per dozen",
     status: "seasonal",
+    shipsOnline: false,
   },
   // Wellness
   {
@@ -107,9 +93,10 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
       "Recommended serving: 1 tbsp for adults, 1 tsp for children. Keep refrigerated.",
     caution:
       "Do not consume raw elderberries. Honey is not safe for children under one year old. Product produced in a private residence exempt from state licensing and inspection.",
-    price: 18,
+    price: 15,
     priceUnit: "· 8 oz bottle",
     status: "available",
+    shipsOnline: true,
   },
   {
     id: "elderberry-syrup-kit",
@@ -122,9 +109,10 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
       "Stovetop: Simmer contents with 4 cups water 1 hour until reduced by half. Cool, strain, add 1 cup honey. Instant Pot: High pressure 8 minutes, vent, mash, strain, cool, add honey.",
     caution:
       "Do not consume raw elderberries. Honey is not safe for children under one year old. Product produced in a private residence exempt from state licensing and inspection.",
-    price: 14,
+    price: 12,
     priceUnit: "· makes ~16 oz batch",
     status: "available",
+    shipsOnline: true,
   },
   // Bath & Body
   {
@@ -135,9 +123,10 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     ingredients: "Pink Himalayan salt, epsom salt, baking soda, borax",
     directions:
       "Fill tub with warm water. Use ½ cup for children over 60 lbs, 1 cup for adults. Soak 20–40 minutes. Rinse with fresh water afterward. Hydrate before and after.",
-    price: 10,
+    price: 8,
     priceUnit: "· 12 oz bag",
     status: "available",
+    shipsOnline: true,
   },
   {
     id: "bentonite-clay-bath-soak",
@@ -147,9 +136,10 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     ingredients: "Bentonite clay, epsom salt, essential oils",
     directions:
       "Fill tub with warm water. Use ½ cup for children over 60 lbs, 1 cup for adults. Soak 20–40 minutes. Rinse with fresh water afterward. Hydrate before and after.",
-    price: 10,
+    price: 8,
     priceUnit: "· 12 oz bag",
     status: "available",
+    shipsOnline: true,
   },
   {
     id: "bath-salt-soak",
@@ -159,45 +149,80 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     ingredients: "Epsom salt, baking soda, essential oils",
     directions:
       "Fill tub with warm water. Use ½ cup for children over 60 lbs, 1 cup for adults. Soak 20–40 minutes. Rinse with fresh water afterward. Hydrate before and after.",
-    price: 9,
+    price: 7,
     priceUnit: "· 12 oz bag",
     status: "available",
+    shipsOnline: true,
   },
   {
-    id: "foot-armpit-mask",
-    name: "Foot / Armpit Mask",
+    id: "foot-mask",
+    name: "Foot Mask",
     category: "bath",
-    description: "Drawing mask for feet and underarms — part of a natural care routine.",
-    price: 8,
+    description: "Drawing clay mask for tired feet — part of a natural care routine.",
+    price: 6,
     priceUnit: "· 4 oz jar",
     status: "available",
+    shipsOnline: true,
+  },
+  {
+    id: "armpit-mask",
+    name: "Armpit Mask",
+    category: "bath",
+    description: "Gentle drawing mask for underarms — part of a natural care routine.",
+    price: 6,
+    priceUnit: "· 4 oz jar",
+    status: "available",
+    shipsOnline: true,
   },
   {
     id: "foot-soak",
     name: "Foot Soak",
     category: "bath",
     description: "Soothing soak blend for tired feet after a long day or trail walk.",
-    price: 8,
+    price: 6,
     priceUnit: "· 8 oz bag",
     status: "available",
+    shipsOnline: true,
   },
   {
     id: "tallow-lotion",
     name: "Tallow Lotion",
     category: "bath",
     description: "Nourishing tallow-based lotion for dry skin — simple and effective.",
-    price: 12,
+    price: 10,
     priceUnit: "· 2 oz jar",
     status: "available",
+    shipsOnline: true,
+  },
+  {
+    id: "black-drawing-salve",
+    name: "Black Drawing Salve",
+    category: "bath",
+    description: "Traditional drawing salve for occasional skin care — simple homemade jar.",
+    price: 9,
+    priceUnit: "· 2 oz jar",
+    status: "available",
+    shipsOnline: true,
+  },
+  {
+    id: "comfrey-salve",
+    name: "Comfrey Salve",
+    category: "bath",
+    description: "Comfrey-infused salve for everyday skin comfort — simple homemade jar.",
+    price: 9,
+    priceUnit: "· 2 oz jar",
+    status: "available",
+    shipsOnline: true,
   },
   {
     id: "sugar-scrub-peppermint",
     name: "Sugar Scrub (Peppermint)",
     category: "bath",
     description: "Invigorating peppermint sugar scrub for smooth, refreshed skin.",
-    price: 10,
+    price: 8,
     priceUnit: "· 8 oz jar",
     status: "available",
+    shipsOnline: true,
   },
   // Garden
   {
@@ -205,47 +230,71 @@ export const MARKET_PRODUCTS: MarketProduct[] = [
     name: "Lily of the Valley",
     category: "garden",
     description: "Classic shade-loving perennial — seasonal availability.",
-    price: 8,
+    price: 6,
     priceUnit: "· potted division",
     status: "seasonal",
+    shipsOnline: false,
   },
   {
     id: "comfrey",
     name: "Comfrey",
     category: "garden",
     description: "Hardy herbaceous plant — seasonal availability.",
-    price: 6,
+    price: 5,
     priceUnit: "· starter plant",
     status: "seasonal",
+    shipsOnline: false,
   },
   {
     id: "motherwort",
     name: "Motherwort",
     category: "garden",
     description: "Traditional garden herb — seasonal availability.",
-    price: 6,
+    price: 5,
     priceUnit: "· starter plant",
     status: "seasonal",
+    shipsOnline: false,
   },
   {
     id: "daylilies",
     name: "Daylilies",
     category: "garden",
     description: "Reliable, beautiful daylily divisions from our gardens.",
-    price: 6,
+    price: 5,
     priceUnit: "· division",
     status: "seasonal",
+    shipsOnline: false,
   },
   {
     id: "iris",
     name: "Iris",
     category: "garden",
     description: "Hardy iris rhizomes — seasonal availability.",
-    price: 7,
+    price: 5,
     priceUnit: "· rhizome",
     status: "seasonal",
+    shipsOnline: false,
   },
 ];
+
+/**
+ * Recommended online pricing (when you start taking web orders).
+ * Booth stays cheaper; online covers packing time, card fees (~3%), and fragile homemade packaging.
+ */
+export const ONLINE_FEES = {
+  /** Multiply booth price: 1.15 = +15% online upcharge */
+  upchargeMultiplier: 1.15,
+  /** Flat packing fee per order (materials + time) */
+  packingFee: 2,
+  shipping: {
+    small: { label: "Small (under ~1 lb)", price: 6 },
+    medium: { label: "Medium (~1–3 lb)", price: 9 },
+    large: { label: "Large / multi-item", price: 12 },
+    freeOver: 55,
+  },
+  note:
+    "Eggs and garden plants are market or local pickup only — we do not ship them.",
+} as const;
 
 export function productsByCategory(category: ProductCategory) {
   return MARKET_PRODUCTS.filter((p) => p.category === category);
@@ -258,4 +307,9 @@ export function formatProductPrice(product: MarketProduct): string {
   if (!product.priceUnit) return dollars;
   if (product.priceUnit.startsWith("per ")) return `${dollars} ${product.priceUnit}`;
   return `${dollars} ${product.priceUnit}`;
+}
+
+/** Suggested online price from booth price (rounded to nearest dollar). */
+export function onlinePriceFromBooth(boothPrice: number): number {
+  return Math.round(boothPrice * ONLINE_FEES.upchargeMultiplier);
 }

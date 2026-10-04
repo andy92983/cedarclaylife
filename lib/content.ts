@@ -6,7 +6,7 @@ export const PILLARS = [
     title: "For Your Home",
     subtitle: "What surrounds you shapes you",
     description:
-      "Handmade laundry soap, fire starters, vanilla goods, farm fresh eggs, and natural home essentials — available at our county farmer's market.",
+      "Handmade laundry soap, vanilla sugar, farm fresh eggs, and natural home essentials — available at our county farmer's market.",
     icon: "home",
     href: "/products#home",
   },
