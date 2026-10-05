@@ -17,7 +17,7 @@ export const PILLARS = [
     description:
       "Bath soaks, sugar scrubs, tallow lotion, salves, and detox blends — small-batch body care made with simple, intentional ingredients.",
     icon: "body",
-    href: "/products#body",
+    href: "/products#bath",
   },
   {
     id: "health",
@@ -26,7 +26,7 @@ export const PILLARS = [
     description:
       "Elderberry syrup DIY kits and seasonal wellness staples — supporting the whole person: mind, body, and spirit.",
     icon: "health",
-    href: "/products#health",
+    href: "/products#wellness",
   },
   {
     id: "create",

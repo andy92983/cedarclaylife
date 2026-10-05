@@ -25,7 +25,7 @@ export default function AuthCallbackPage() {
       next = params.get("next") || "/orders";
     }
 
-    if (!next.startsWith("/")) next = "/orders";
+    if (!next.startsWith("/") || next.startsWith("//") || next.startsWith("/\\")) next = "/orders";
 
     const code = params.get("code");
 

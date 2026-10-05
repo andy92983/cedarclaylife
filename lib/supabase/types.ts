@@ -50,11 +50,11 @@ export function formatStatus(status: string): string {
 
 /** Customer may edit or cancel only while processing. */
 export function canCustomerEdit(status: string): boolean {
-  return status === "processing" || status === "pending";
+  return status === "processing";
 }
 
 export function canCustomerCancel(status: string): boolean {
-  return status === "processing" || status === "pending";
+  return status === "processing";
 }
 
 export function isNonRefundable(status: string): boolean {

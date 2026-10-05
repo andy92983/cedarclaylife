@@ -8,7 +8,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About — Our Mission, Faith & Story",
   description:
-    "Cedar & Clay is a faith-based wellness and maker community in Redgranite, Wisconsin. Learn our biblical foundation, holistic mission, farmer's market products, studio classes, and 21 acres of trails.",
+    "Cedar & Clay is a faith-based wellness and maker community in Redgranite, Wisconsin. Learn our biblical foundation, holistic mission, farmer's market products, the art studio coming soon, and 21 acres for guided walks.",
   alternates: { canonical: `${SITE.domain}/about` },
   openGraph: {
     title: `About ${SITE.name}`,
