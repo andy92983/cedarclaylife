@@ -24,7 +24,7 @@ export default function MyOrdersPage() {
       <BrandedPageHeader
         eyebrow="Your account"
         title="My pre-orders"
-        description="Sign in with the same email you used on your pre-order to see status updates. Payment is still arranged offline after we contact you."
+        description="Sign in with the same email you used on your pre-order. You can edit or cancel while an order is Processing (refund arranged if you already paid). Once an order moves to Shipping or later, it is non-refundable because of the nature of our handmade products."
       />
       <section className="section-padding">
         <div className="container-narrow">

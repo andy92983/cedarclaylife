@@ -3,7 +3,8 @@ export type PreorderStatus =
   | "shipping"
   | "shipped"
   | "delivered"
-  | "completed";
+  | "completed"
+  | "cancelled";
 
 export type Preorder = {
   id: string;
@@ -29,12 +30,14 @@ export type PreorderEditFields = {
   notes: string;
 };
 
+/** Admin-selectable statuses (includes cancelled). */
 export const PREORDER_STATUSES: PreorderStatus[] = [
   "processing",
   "shipping",
   "shipped",
   "delivered",
   "completed",
+  "cancelled",
 ];
 
 /** Admin UI lives in OrisTrade Journal — not on this site. */
@@ -45,8 +48,17 @@ export function formatStatus(status: string): string {
   return status.charAt(0).toUpperCase() + status.slice(1);
 }
 
+/** Customer may edit or cancel only while processing. */
 export function canCustomerEdit(status: string): boolean {
   return status === "processing" || status === "pending";
+}
+
+export function canCustomerCancel(status: string): boolean {
+  return status === "processing" || status === "pending";
+}
+
+export function isNonRefundable(status: string): boolean {
+  return ["shipping", "shipped", "delivered", "completed"].includes(status);
 }
 
 /** Supabase table in the OrisTrade project */

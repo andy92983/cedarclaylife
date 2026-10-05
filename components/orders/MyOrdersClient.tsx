@@ -99,6 +99,19 @@ export function MyOrdersClient() {
     await loadOrders();
   }
 
+  async function cancelCustomerOrder(id: string) {
+    const supabase = getSupabaseBrowserClient();
+    if (!supabase) throw new Error("Not signed in.");
+
+    const { error: updateError } = await supabase
+      .from(PREORDERS_TABLE)
+      .update({ status: "cancelled" })
+      .eq("id", id);
+
+    if (updateError) throw new Error(updateError.message);
+    await loadOrders();
+  }
+
   async function signOut() {
     const supabase = getSupabaseBrowserClient();
     await supabase?.auth.signOut();
@@ -144,6 +157,7 @@ export function MyOrdersClient() {
           orders={orders}
           emptyMessage="No pre-orders found for this email yet. Submit one on the Pre-Order page — use this same email so they show up here."
           onCustomerSave={saveCustomerEdit}
+          onCustomerCancel={cancelCustomerOrder}
         />
       )}
     </div>
